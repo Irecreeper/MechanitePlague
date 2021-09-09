@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Guardian Mechanites - Blocks Mechanite Plague -->
+
+	<ThingDef ParentName="MakeableDrugBase">
+		<defName>MP_GuardianMechanites</defName>
+		<label>guardian mechanites</label>
+		<description>A specialized injector loaded with altered mechanites. With the addition of medical components, this batch of the plague ends up destroying newly-introduced instances of the Mechanite Plague within the body. It's long lasting, so one dose will protect the user for a quadrum. Also slightly boosts blood filtration.</description>
+		<descriptionHyperlinks>
+			<HediffDef>MP_GuardianMechanitesHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Things/Resources/InjectorGunGreen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<socialPropernessMatters>false</socialPropernessMatters>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToMake>1000</WorkToMake>
+			<MarketValue>35</MarketValue>
+			<Mass>0.1</Mass>
+			<Flammability>0.7</Flammability>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<ingestible>
+			<drugCategory>Hard</drugCategory>
+			<baseIngestTicks>50</baseIngestTicks>
+			<ingestSound>Ingest_Inject</ingestSound>
+			<ingestCommandString>Inject {0}</ingestCommandString>
+			<ingestReportString>Injecting {0}.</ingestReportString>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<chairSearchRadius>0</chairSearchRadius>
+			<foodType>Processed, Fluid</foodType>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<outcomeDoers>
+			<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>MP_GuardianMechanitesHigh</hediffDef>
+					<severity>1.0</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker>
+			<researchPrerequisite>MP_MechaniteMedicine</researchPrerequisite>
+			<recipeUsers>
+				<li>DrugLab</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<MedicineHerbal>1</MedicineHerbal>
+			<MP_MechaniteCanister>1</MP_MechaniteCanister>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<listOrder>1010</listOrder>
+			</li>
+		</comps>
+	</ThingDef>
+  
+	<HediffDef>
+		<defName>MP_GuardianMechanitesHigh</defName>
+		<hediffClass>Hediff_High</hediffClass>
+		<label>guardian mechanites</label>
+		<description>A mechanite-induced immunity to the Mechanite Plague. This only blocks new infections; it does nothing for those who are already infected, even if their infection is dormant. Also slightly boosts blood filtration.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.06</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<makeImmuneTo>
+					<li>MP_MechanitePlague</li>
+				</makeImmuneTo>
+				<capMods>
+					<li>
+						<capacity>BloodFiltration</capacity>
+						<offset>0.20</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+	
+	<!-- Stimulant Mechanites - Temporary, incredibly powerful speed boost! Followed by a crash. -->
+	
+	<ThingDef ParentName="MakeableDrugBase">
+		<defName>MP_StimulantMechanites</defName>
+		<label>stimulant mechanites</label>
+		<description>A specialized injector loaded with altered mechanites. The introduction of psychite into the mechanite batch causes them to overcharge the user's nervous system, increasing the user's consciousness and movement speed for a short time. While there is no risk of addiction, there is a lengthy crash that leaves the user feeling drained and disoriented for far longer than the high.</description>
+		<descriptionHyperlinks>
+			<HediffDef>MP_StimulantMechanitesHigh</HediffDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Things/Resources/InjectorGunYellow</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<statBases>
+			<WorkToMake>1200</WorkToMake>
+			<MarketValue>50</MarketValue>
+			<Mass>0.1</Mass>
+			<Flammability>0.7</Flammability>
+		</statBases>
+		<techLevel>Industrial</techLevel>
+		<ingestible>
+			<drugCategory>Hard</drugCategory>
+			<baseIngestTicks>50</baseIngestTicks>
+			<ingestSound>Ingest_Inject</ingestSound>
+			<ingestCommandString>Inject {0}</ingestCommandString>
+			<ingestReportString>Injecting {0}.</ingestReportString>
+			<useEatingSpeedStat>false</useEatingSpeedStat>
+			<chairSearchRadius>0</chairSearchRadius>
+			<foodType>Processed, Fluid</foodType>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>MP_StimulantMechanitesHigh</hediffDef>
+					<severity>1.0</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<recipeMaker>
+			<researchPrerequisite>MP_MechaniteMedicine</researchPrerequisite>
+			<recipeUsers>
+				<li>DrugLab</li>
+			</recipeUsers>
+		</recipeMaker>
+		<costList>
+			<PsychoidLeaves>6</PsychoidLeaves>
+			<MP_MechaniteCanister>2</MP_MechaniteCanister>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+				<listOrder>205</listOrder>
+			</li>
+		</comps>
+	</ThingDef>
+  
+	<HediffDef>
+		<defName>MP_StimulantMechanitesHigh</defName>
+		<hediffClass>Hediff_High</hediffClass>
+		<label>stimulant mechanites</label>
+		<labelNoun>a stimulant mechanite dose</labelNoun>
+		<description>There are mechanites in the user's brain, boosting their consciousness and movement speed. After a few hours however, the user will suffer from a crash, inverting the drug's effects.</description>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<maxSeverity>1.0</maxSeverity>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-1.33</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<label>crashing</label>
+				<painFactor>1.2</painFactor>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<postFactor>0.8</postFactor>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>0.5</postFactor>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<postFactor>0.8</postFactor>
+					</li>
+				</capMods>
+			</li>
+			<li>
+				<minSeverity>0.75</minSeverity>
+				<label>overcharging</label>
+				<painFactor>0.8</painFactor>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.2</offset>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>0.6</offset>
+					</li>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>0.2</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+</Defs>

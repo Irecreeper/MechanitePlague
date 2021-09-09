@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="ApparelBase">
+    <defName>MP_Apparel_PlagueBandolier</defName>
+    <label>plague bandolier</label>
+    <description>A spacer-tech device that, while seemingly a normal bandolier, holds a swarm of mechanites that veils the user's weaponry. The mechanites will empower rounds fired by the weapon. All shots fired while wearing this belt will apply the Mechanite Plague, the amount applied based on weapon damage.\n\nNot quite as powerful as dart-focused plague weaponry, but still effective. Stack with standard plague-based weaponry for maximum plague application.</description>
+    <graphicData>
+		<texPath>Things/Apparel/PlagueBandolier</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<drawSize>(0.8,0.8)</drawSize>
+    </graphicData>
+	<comps>
+		<li Class="MP_MechanitePlague.CompProperties_MechPlagueInflictApparel"/>
+	</comps>
+    <statBases>
+		<Mass>3</Mass>
+		<WorkToMake>18000</WorkToMake>
+		<Flammability>0.4</Flammability>
+		<EquipDelay>2</EquipDelay>
+    </statBases>
+    <thingSetMakerTags>
+		<li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <costList>
+		<ComponentSpacer>2</ComponentSpacer>
+		<Plasteel>30</Plasteel>
+		<MP_MechaniteCanister>10</MP_MechaniteCanister>
+    </costList>
+    <recipeMaker>
+		<unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
+		<researchPrerequisite>MP_MechaniteWeaponsSpacer</researchPrerequisite>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workSkill>Crafting</workSkill>
+		<effectWorking>Smith</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<recipeUsers>
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<useIngredientsForColor>false</useIngredientsForColor>
+		<skillRequirements>
+			<Crafting>6</Crafting>
+		</skillRequirements>
+    </recipeMaker>
+    <thingCategories>
+		<li>ApparelUtility</li>
+    </thingCategories>
+    <apparel>
+		<countsAsClothingForNudity>false</countsAsClothingForNudity>
+		<careIfWornByCorpse>false</careIfWornByCorpse>
+		<careIfDamaged>false</careIfDamaged>
+		<wearPerDay>0</wearPerDay>
+		<bodyPartGroups>
+			<li>Waist</li>
+		</bodyPartGroups>
+		<layers>
+			<li>Belt</li>
+		</layers>
+    </apparel>
+    <colorGenerator Class="ColorGenerator_Options">
+		<options>
+			<li>
+				<weight>10</weight>
+				<only>(0.4,0.5,0.4,1)</only>
+			</li>
+			<li>
+				<weight>10</weight>
+				<only>(0.7,0.9,0.7,1)</only>
+			</li>
+		</options>
+    </colorGenerator>
+  </ThingDef>
+
+</Defs>

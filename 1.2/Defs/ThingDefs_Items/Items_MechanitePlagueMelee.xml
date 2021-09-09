@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Modified Parent Class, to make the weapons less frequent -->
+
+	<ThingDef Name="BaseMeleeWeaponPlague_Sharp_Quality" ParentName="BaseMeleeWeapon_Sharp_Quality" Abstract="True">
+		<generateCommonality>0.2</generateCommonality> <!-- edit at your own risk! -->
+	</ThingDef>
+
+	<!-- Plague Needle - neolithic melee -->
+	<ThingDef ParentName="BaseMeleeWeaponPlague_Sharp_Quality">
+		<defName>MP_MeleeWeapon_PlagueNeedle</defName>
+		<label>plague needle</label>
+		<techLevel>Neolithic</techLevel>
+		<description>A simple knife, with a thin but long blade for its size. This is coated with poison that inflicts the Mechanite Plague, but it tends to be inconsistent in its application.</description>
+		<graphicData>
+			  <texPath>Things/Weapons/PlagueNeedle</texPath>
+			  <graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<uiIconScale>1.6</uiIconScale>
+		<weaponTags>
+			  <li>NeolithicMeleeBasic</li>
+			  <li>MP_NeolithicPlagueMelee</li>
+		</weaponTags>
+		<costStuffCount>35</costStuffCount>
+		<costList>
+            <MP_MechaniteCanister>2</MP_MechaniteCanister>
+        </costList>
+		<statBases>
+		  <WorkToMake>3000</WorkToMake>
+		  <Mass>0.55</Mass>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<burnableByRecipe>false</burnableByRecipe>
+		<tools>
+		  <li>
+			<label>handle</label>
+			<capacities>
+			  <li>Blunt</li>
+			</capacities>
+			<power>9</power>
+			<cooldownTime>2</cooldownTime>
+		  </li>
+		  <li>
+			<label>blade</label>
+			<capacities>
+			  <li>MP_CutInfect</li>
+			</capacities>
+			<power>10</power>
+			<cooldownTime>1.5</cooldownTime>
+		  </li>
+		  <li>
+			<label>point</label>
+			<capacities>
+			  <li>MP_StabInfect</li>
+			</capacities>
+			<power>14</power>
+			<cooldownTime>2</cooldownTime>
+		  </li>
+		</tools>
+		<recipeMaker>
+			<researchPrerequisite>MP_MechaniteWeaponsNeolithic</researchPrerequisite>
+			<recipeUsers>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</recipeMaker>
+		<modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>0.80</addHediffChance>
+                <hediffLowerValue>0.06</hediffLowerValue>
+                <hediffUpperValue>0.15</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</ThingDef>
+	
+	<!-- Plague Claw - industrial melee -->
+	<ThingDef ParentName="BaseMeleeWeaponPlague_Sharp_Quality">
+		<defName>MP_MeleeWeapon_PlagueClaw</defName>
+		<label>plague claw</label>
+		<description>A lightweight sword that's been coated with poison that causes the Mechanite Plague. It swings fast, but its damage leaves something to be desired.</description>
+		<graphicData>
+		  <texPath>Things/Weapons/PlagueClaw</texPath>
+		  <graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<uiIconScale>1.2</uiIconScale>
+		<techLevel>Medieval</techLevel>
+		<costStuffCount>45</costStuffCount>
+		<costList>
+            <MP_MechaniteCanister>4</MP_MechaniteCanister>
+        </costList>
+		<weaponTags>
+		  <li>MedievalMeleeDecent</li>
+		  <li>MP_IndustrialPlagueMelee</li>
+		</weaponTags>
+		<statBases>
+		  <WorkToMake>14000</WorkToMake>
+		  <Mass>0.6</Mass> 
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<stuffCategories>
+		  <li>Metallic</li>
+		  <li>Woody</li>
+		</stuffCategories>
+		<tools>
+		  <li>
+			<label>handle</label>
+			<capacities>
+			  <li>Blunt</li>
+			</capacities>
+			<power>8</power>
+			<cooldownTime>2</cooldownTime>
+		  </li>
+		  <li>
+			<label>point</label>
+			<capacities>
+			  <li>MP_StabInfect</li>
+			</capacities>
+			<power>12</power>
+			<cooldownTime>1.6</cooldownTime>
+		  </li>
+		  <li>
+			<label>edge</label>
+			<capacities>
+			  <li>MP_CutInfect</li>
+			</capacities>
+			<power>13</power>
+			<cooldownTime>1.6</cooldownTime>
+		  </li>
+		</tools>
+		<recipeMaker>
+		  <researchPrerequisite>MP_MechaniteWeaponsMelee</researchPrerequisite>
+		  <skillRequirements>
+			<Crafting>4</Crafting>
+		  </skillRequirements>
+		</recipeMaker>
+		<modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>1.00</addHediffChance>
+                <hediffLowerValue>0.10</hediffLowerValue>
+                <hediffUpperValue>0.12</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</ThingDef>
+	
+	<!-- Plague Fang - industial melee -->
+	<ThingDef ParentName="BaseMeleeWeaponPlague_Sharp_Quality">
+		<defName>MP_MeleeWeapon_PlagueFang</defName>
+		<label>plague fang</label>
+		<description>An especially heavy lance who's tip has been coated with a poison that causes the Mechanite Plague. It'll apply a frankly ridiculous dosage of the plague per hit, but it's slow and unwieldy.</description>
+		<graphicData>
+			<texPath>Things/Weapons/PlagueFang</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<techLevel>Neolithic</techLevel>
+		<weaponTags>
+			<li>MP_IndustrialPlagueMelee</li>
+		</weaponTags>
+		<costStuffCount>110</costStuffCount>
+		<costList>
+            <MP_MechaniteCanister>6</MP_MechaniteCanister>
+        </costList>
+		<thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+		<statBases>
+		  <WorkToMake>18000</WorkToMake>
+		  <Mass>2.8</Mass>
+		</statBases>
+		<equippedAngleOffset>-25</equippedAngleOffset>
+		<stuffCategories>
+		  <li>Metallic</li>
+		  <li>Woody</li>
+		</stuffCategories>
+		<tools>
+		  <li>
+			<label>shaft</label>
+			<capacities>
+			  <li>Blunt</li>
+			  <li>Poke</li>
+			</capacities>
+			<power>14</power>
+			<cooldownTime>2.6</cooldownTime>
+		  </li>
+		  <li>
+			<label>point</label>
+			<capacities>
+			  <li>MP_StabInfect</li>
+			</capacities>
+			<power>26</power>
+			<armorPenetration>0.65</armorPenetration>
+			<cooldownTime>3</cooldownTime>
+		  </li>
+		</tools>
+		<recipeMaker>
+			<researchPrerequisites>
+			<li>LongBlades</li>
+			<li>MP_MechaniteWeaponsMelee</li>
+			</researchPrerequisites>
+			<skillRequirements>
+				<Crafting>6</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>1.00</addHediffChance>
+                <hediffLowerValue>0.29</hediffLowerValue>
+                <hediffUpperValue>0.36</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</ThingDef>
+</Defs>

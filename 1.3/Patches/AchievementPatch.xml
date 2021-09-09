@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+A simple patching operation for Vanilla Achievements Expanded.
+Uses no custom trackers, because I'm lazy.
+-->
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Achievements Expanded</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd"> 
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- Achievement Tab -->
+						<AchievementsExpanded.AchievementTabDef>
+							<defName>MP_Achievements</defName>
+							<label>The Mechanite Plague</label>
+						</AchievementsExpanded.AchievementTabDef>
+						
+						<!-- Achievements -->
+						<AchievementsExpanded.AchievementDef Name="MP_AchievementParent" Abstract="true">					
+							<tab>MP_Achievements</tab>
+						</AchievementsExpanded.AchievementDef>
+						
+						<!-- Burster Milestones: Obtain by having (x) bursters. -->
+						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
+							<defName>MP_AchievementBursterMilestone1</defName>
+							<label>Friend!</label>
+							<description>Control a Burster.</description>
+							
+							<tracker Class="AchievementsExpanded.KindDefTracker">
+								<kindDefs>
+									<li>
+										<key>MP_Mech_Burster</key>
+										<value>1</value>
+									</li>
+								</kindDefs>
+							</tracker>
+							
+							<texPath>Achievements/MP_BursterAchievement1</texPath>
+							<points>5</points>
+						</AchievementsExpanded.AchievementDef>
+						
+						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
+							<defName>MP_AchievementBursterMilestone2</defName>
+							<label>Friends!</label>
+							<description>Control 4 Bursters at once.</description>
+							
+							<tracker Class="AchievementsExpanded.KindDefTracker">
+								<kindDefs>
+									<li>
+										<key>MP_Mech_Burster</key>
+										<value>4</value>
+									</li>
+								</kindDefs>
+							</tracker>
+							
+							<texPath>Achievements/MP_BursterAchievement2</texPath>
+							<points>10</points>
+						</AchievementsExpanded.AchievementDef>
+						
+						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
+							<defName>MP_AchievementBursterMilestone3</defName>
+							<label>Many Friends!</label>
+							<description>Control 9 Bursters at once.</description>
+							
+							<tracker Class="AchievementsExpanded.KindDefTracker">
+								<kindDefs>
+									<li>
+										<key>MP_Mech_Burster</key>
+										<value>9</value>
+									</li>
+								</kindDefs>
+							</tracker>
+							
+							<texPath>Achievements/MP_BursterAchievement3</texPath>
+							<points>25</points>
+						</AchievementsExpanded.AchievementDef>
+						
+						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
+							<defName>MP_AchievementBursterMilestone4</defName>
+							<label>So Many Friends!</label>
+							<description>Control 16 Bursters at once.</description>
+							
+							<tracker Class="AchievementsExpanded.KindDefTracker">
+								<kindDefs>
+									<li>
+										<key>MP_Mech_Burster</key>
+										<value>16</value>
+									</li>
+								</kindDefs>
+							</tracker>
+							
+							<texPath>Achievements/MP_BursterAchievement4</texPath>
+							<points>50</points>
+						</AchievementsExpanded.AchievementDef>
+						
+						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
+							<defName>MP_AchievementBursterMilestone5</defName>
+							<label>Oh No</label>
+							<description>Control 25 Bursters at once. That's... excessive.</description>
+							
+							<tracker Class="AchievementsExpanded.KindDefTracker">
+								<kindDefs>
+									<li>
+										<key>MP_Mech_Burster</key>
+										<value>25</value>
+									</li>
+								</kindDefs>
+							</tracker>
+							
+							<texPath>Achievements/MP_BursterAchievement5</texPath>
+							<points>75</points>
+						</AchievementsExpanded.AchievementDef>
+						<!-- End Achievements -->
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

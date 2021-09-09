@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Guardian Mechanites - Blocks Mechanite Plague -->
+
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>MP_GuardianMechanites</defName>
+    <label>guardian mechanites</label>
+    <description>A specialized injector for the Mechanite Plague. With the addition of medical components, this batch of the plague ends up destroying newly-introduced instances of the Mechanite Plague within the body. It's long lasting, so one dose will protect the user for a quadrum. Also slightly boosts blood filtration.</description>
+    <graphicData>
+      <texPath>Things/Resources/InjectorGun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <socialPropernessMatters>false</socialPropernessMatters>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>1000</WorkToMake>
+      <MarketValue>35</MarketValue>
+      <Mass>0.007</Mass>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>MP_GuardianMechanitesHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>MP_MechaniteMedicine</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <MedicineHerbal>1</MedicineHerbal>
+      <MP_MechaniteCanister>1</MP_MechaniteCanister>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>1010</listOrder>
+      </li>
+    </comps>
+	
+  </ThingDef>
+  
+  <HediffDef>
+    <defName>MP_GuardianMechanitesHigh</defName>
+    <hediffClass>Hediff_High</hediffClass>
+    <label>guardian mechanites</label>
+    <description>A mechanite-induced immunity to the Mechanite Plague. This only blocks new infections; it does nothing for those who are already infected, even if their infection is dormant. Also slightly boosts blood filtration.</description>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.06</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+      <stages>
+        <li>
+			<makeImmuneTo>
+				<li>MP_MechanitePlague</li>
+			</makeImmuneTo>
+			<capMods>
+				<li>
+					<capacity>BloodFiltration</capacity>
+					<offset>0.20</offset>
+				</li>
+			</capMods>
+        </li>
+      </stages>
+  </HediffDef>
+</Defs>

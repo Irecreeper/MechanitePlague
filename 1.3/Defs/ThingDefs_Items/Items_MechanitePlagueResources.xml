@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Mechanite Canister -->
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>MP_MechaniteCanister</defName>
+        <label>mechanite canister</label>
+        <description>A small canister containing mechanites which harbor the Mechanite Plague. It's perfectly safe to work with in this state. These can be found on exotic good traders, but the easiest way to acquire more is to disassemble a Burster.</description>
+        <graphicData>
+            <texPath>Things/Resources/Canister</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <stackLimit>50</stackLimit>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <MarketValue>10</MarketValue>
+            <Mass>0.5</Mass>
+            <Flammability>0.6</Flammability>
+            <DeteriorationRate>2.0</DeteriorationRate>
+        </statBases>
+        <intricate>true</intricate>
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+    </ThingDef>
+    
+    <!-- Mechanite Shell -->
+
+    <ThingDef ParentName="MakeableShellBase">
+        <defName>MP_Shell_Plague</defName>
+        <label>plague shrapnel shell</label>
+        <description>A shell designed to burst into hundreds of plague-inducing fragments over a wide area. Has low damage, however. Can be fired from mortars or installed as a trap. Explodes when damaged.</description>
+        <graphicData>
+          <texPath>Things/Resources/PlagueShell</texPath>
+          <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>3.5</explosiveRadius>
+                <explosiveDamageType>MP_BlastInfectMortar</explosiveDamageType>
+                <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+                <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+                <wickTicks>30~60</wickTicks>
+            </li>
+        </comps>
+        <projectileWhenLoaded>MP_Bullet_Shell_Plague</projectileWhenLoaded>
+        <costList>
+            <MP_MechaniteCanister>1</MP_MechaniteCanister>
+            <Steel>30</Steel>
+            <Chemfuel>10</Chemfuel>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>MP_MechaniteMortar</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+  
+    <ThingDef ParentName="BaseBullet">
+        <defName>MP_Bullet_Shell_Plague</defName>
+        <label>plague shrapnel shell</label>
+        <graphicData>
+            <texPath>Things/Projectile/ShellHighExplosive</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
+        <projectile>
+            <damageDef>MP_BlastInfectMortar</damageDef>
+            <speed>41</speed>
+            <explosionRadius>3.5</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+    </ThingDef>
+    
+    
+</Defs>

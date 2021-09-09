@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Light shards that service as ammunition. For use with the Tempest. -->
+
+	<!-- ====== AmmoSet ====== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>MP_AmmoSet_MechShrapnel</defName>
+		<label>mechanite shrapnel</label>
+		<ammoTypes>
+			<MP_Ammo_MechShrapnel>MP_Bullet_MechShrapnel</MP_Ammo_MechShrapnel>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ====== Ammo ====== -->	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="762x51mmNATOBase">
+		<defName>MP_Ammo_MechShrapnel</defName>
+		<description>Razor-sharp fragments that can apply the Mechanite Plague from a distance. It is unclear as to how these remain stable during flight, but they're about as effective as normal ammunition.</description>
+		<label>mechanite shrapnel cartridge</label>
+		<graphicData>
+			<texPath>ThirdParty/CP Metal Gear Solid/Rifle/NL</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.02</Mass>
+			<Bulk>0.01</Bulk>
+			<MarketValue>0.196</MarketValue>
+		</statBases>
+		<ammoClass>FullMetalJacket</ammoClass>
+		<cookOffProjectile>MP_Bullet_MechShrapnel</cookOffProjectile>
+	</ThingDef>
+
+	<!-- ====== Projectiles ====== -->
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Base762x51mmNATOBullet">
+		<defName>MP_Bullet_MechShrapnel</defName>
+		<label>mechanite shrapnel</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>MP_BulletInfect</damageDef>
+			<damageAmountBase>16</damageAmountBase>
+			<armorPenetrationSharp>7</armorPenetrationSharp>
+			<armorPenetrationBlunt>20</armorPenetrationBlunt>
+			<speed>36</speed>
+		</projectile>
+		<modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>0.75</addHediffChance>
+				<hediffLowerValue>0.06</hediffLowerValue>
+				<hediffUpperValue>0.08</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</ThingDef>
+
+	<!-- ====== Recipes ====== -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeMP_Ammo_MechShrapnel</defName> <!-- has to be named like this. deal with it. -->
+		<label>make mechanite shrapnel cartridge x500</label>
+		<description>Craft 500 mechanite shrapnel cartridges.</description>
+		<jobString>Making mechanite shrapnel cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MP_MechaniteCanister</li>
+					</thingDefs>
+				</filter>
+				<count>6</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>MP_MechaniteCanister</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<MP_Ammo_MechShrapnel>500</MP_Ammo_MechShrapnel>
+		</products>
+		<workAmount>4400</workAmount>
+	</RecipeDef>
+</Defs>

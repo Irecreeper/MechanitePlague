@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AbilityDef ParentName="PsycastBase">
+		<defName>MP_RaiseBursterSingle</defName>
+		<label>mechskip</label>
+		<description>A morally dubious psycast that allows one to teleport a host of plague-inducing Mechanites into a corpse. In an instant, a Burster will spring forth from the body to assault the caster's enemies. Only a fresh, non-rotted humanoid corpse will work.\n\nBursters spawned through this method will disintegrate upon death, leaving no corpse behind.</description>
+		<level>2</level>
+		<iconPath>Abilities/MechskipSingle</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<hotKey>Misc3</hotKey>
+		<statBases>
+			<Ability_EntropyGain>12</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.02</Ability_PsyfocusCost>
+		</statBases>
+		<verbProperties>
+			<warmupTime>0.5</warmupTime>
+			<range>24.9</range>
+			<targetParams>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetMechs>False</canTargetMechs>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetHumans>False</canTargetHumans>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetItems>True</canTargetItems>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class = "CompProperties_AbilityEffect">
+				<compClass>MP_MechanitePlague.CompAbilityEffect_MechPlagueSpawn</compClass>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<AbilityDef ParentName="PsycastBase">
+		<defName>MP_RaiseBursterMass</defName>
+		<label>mass mechskip</label>
+		<description>A morally dubious psycast that allows one to teleport a host of plague-inducing Mechanites into a whole field of corpses. In an instant, Bursters will spring forth from each body to assault the caster's enemies. Only fresh, non-rotted humanoid corpses will work.\n\nBursters spawned through this method will disintegrate upon death, leaving no corpse behind. Consider keeping a fridge of corpses around?</description>
+		<level>6</level>
+		<iconPath>Abilities/MechskipMass</iconPath>
+		<writeCombatLog>True</writeCombatLog>
+		<hotKey>Misc3</hotKey>
+		<statBases>
+			<Ability_EntropyGain>60</Ability_EntropyGain>
+			<Ability_PsyfocusCost>0.08</Ability_PsyfocusCost>
+			<Ability_EffectRadius>3.5</Ability_EffectRadius>
+		</statBases>
+		<verbProperties>
+			<warmupTime>2</warmupTime>
+			<range>15.5</range>
+			<targetParams>
+				<canTargetSelf>False</canTargetSelf>
+				<canTargetMechs>False</canTargetMechs>
+				<canTargetAnimals>False</canTargetAnimals>
+				<canTargetHumans>False</canTargetHumans>
+				<canTargetBuildings>False</canTargetBuildings>
+				<canTargetItems>True</canTargetItems>
+				<canTargetLocations>True</canTargetLocations>
+			</targetParams>
+		</verbProperties>
+		<comps>
+			<li Class = "CompProperties_AbilityEffect">
+				<compClass>MP_MechanitePlague.CompAbilityEffect_MechPlagueSpawn</compClass>
+			</li>
+		</comps>
+	</AbilityDef>
+</Defs>

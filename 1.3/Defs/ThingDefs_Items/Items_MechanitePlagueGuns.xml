@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+    <!-- Modified Parent Class, to make the weapons less frequent -->
+    
+    <ThingDef Name="BaseMakeablePlagueGun" ParentName="BaseGunWithQuality" Abstract="True">
+        <recipeMaker>
+            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <recipeUsers>
+                <li>TableMachining</li>
+            </recipeUsers>
+            <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+        </recipeMaker>
+        <weaponTags>
+            <li>Gun</li>
+        </weaponTags>
+        <generateCommonality>0.2</generateCommonality> <!-- edit at your own risk! -->
+    </ThingDef>
+    
+    <ThingDef Name="BaseHumanMakeablePlagueGun" ParentName="BaseMakeablePlagueGun" Abstract="True">
+        <comps>
+            <li Class="CompProperties_Biocodable"/>
+        </comps>
+    </ThingDef>
+
+    
+    
+    <!-- Mechanite Blowpipe -->
+    
+    <ThingDef ParentName="BaseProjectileNeolithic">
+        <defName>MP_Bullet_MechaniteBlowdart</defName>
+        <label>mechanite blowdart</label>
+        <graphicData>
+            <texPath>Things/Projectile/Dart</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>MP_ArrowInfect</damageDef>
+            <damageAmountBase>8</damageAmountBase>
+            <stoppingPower>0.5</stoppingPower>
+            <armorPenetrationBase>0.2</armorPenetrationBase>
+            <speed>51</speed>
+        </projectile>
+    </ThingDef>
+    
+    <ThingDef ParentName="BaseWeaponNeolithic">
+        <defName>MP_Gun_MechaniteBlowpipe</defName>
+        <label>mechanite blowpipe</label>
+        <description>A hollow wooden tube that fires metallic darts, tipped with the contents of a Mechanite Canister. The darts aren't very potent, giving them a chance to not apply the Mechanite Plague.</description>
+        <graphicData>
+          <texPath>Things/Weapons/Blowpipe</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Bow_Small</soundInteract>
+        <costList>
+            <WoodLog>30</WoodLog>
+            <Steel>15</Steel>
+            <MP_MechaniteCanister>2</MP_MechaniteCanister>
+        </costList>
+        <statBases>
+          <WorkToMake>3000</WorkToMake>
+          <Mass>0.6</Mass>
+          <AccuracyTouch>0.75</AccuracyTouch>
+          <AccuracyShort>0.70</AccuracyShort>
+          <AccuracyMedium>0.40</AccuracyMedium>
+          <AccuracyLong>0.20</AccuracyLong>
+          <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+        </statBases>
+        <weaponTags Inherit="False">
+          <li>MP_NeolithicPlagueRanged</li>
+        </weaponTags>
+        <recipeMaker>
+          <researchPrerequisite>MP_MechaniteWeaponsNeolithic</researchPrerequisite>
+          <recipeUsers>
+            <li>CraftingSpot</li>
+          </recipeUsers>
+          <skillRequirements>
+            <Crafting>3</Crafting>
+          </skillRequirements>
+        </recipeMaker>
+        <verbs>
+          <li>
+            <verbClass>Verb_Shoot</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>MP_Bullet_MechaniteBlowdart</defaultProjectile>
+            <warmupTime>1.5</warmupTime>
+            <range>20.5</range>
+            <soundCast>Bow_Small</soundCast>
+          </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>shaft</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>7</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+        <modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>0.80</addHediffChance>
+                <hediffLowerValue>0.14</hediffLowerValue>
+                <hediffUpperValue>0.17</hediffUpperValue>
+            </li>
+        </modExtensions>
+    </ThingDef>
+    
+    <!-- Mechanite Darter -->
+    
+    <ThingDef ParentName="BaseBullet">
+    <defName>MP_Bullet_MechaniteDart</defName>
+    <label>mechanite dart</label>
+    <graphicData>
+      <texPath>Things/Projectile/Dart</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>MP_BulletInfect</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <stoppingPower>0.5</stoppingPower>
+      <armorPenetrationBase>0.25</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseHumanMakeablePlagueGun">
+    <defName>MP_Gun_MechaniteDarter</defName>
+    <label>mechanite darter</label>
+    <description>A lightweight, quick-firing dart pistol. It's a bit on the inaccurate side, but the darts it fires will apply the Mechanite Plague. Thanks to the lack of recoil, the user can quickly move after firing.</description>
+    <graphicData>
+      <texPath>Things/Weapons/DartPistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.4</uiIconScale>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <statBases>
+      <WorkToMake>6000</WorkToMake>
+      <Mass>1.4</Mass>
+      <AccuracyTouch>0.75</AccuracyTouch>
+      <AccuracyShort>0.65</AccuracyShort>
+      <AccuracyMedium>0.60</AccuracyMedium>
+      <AccuracyLong>0.40</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>MP_IndustrialPlagueRanged</li>
+    </weaponTags>
+    <costList>
+      <Steel>25</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <MP_MechaniteCanister>3</MP_MechaniteCanister>
+    </costList>
+    <recipeMaker>
+        <researchPrerequisites>
+            <li>MP_MechaniteWeaponsIndustrial</li>
+        </researchPrerequisites>
+        <skillRequirements>
+            <Crafting>3</Crafting>
+        </skillRequirements>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>MP_Bullet_MechaniteDart</defaultProjectile>
+        <warmupTime>0.7</warmupTime>
+        <range>23.5</range>
+        <soundCast>Bow_Small</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>7</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <modExtensions>
+        <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+            <addHediffChance>1.00</addHediffChance>
+            <hediffLowerValue>0.13</hediffLowerValue>
+            <hediffUpperValue>0.15</hediffUpperValue>
+        </li>
+    </modExtensions>
+  </ThingDef>
+  
+  
+  
+  <!-- Mechanite Stinger -->
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>MP_Bullet_MechaniteDartHeavy</defName>
+    <label>heavy mechanite dart</label>
+    <graphicData>
+      <texPath>Things/Projectile/Dart</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>MP_BulletInfect</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <stoppingPower>0.5</stoppingPower>
+      <armorPenetrationBase>0.6</armorPenetrationBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseHumanMakeablePlagueGun">
+    <defName>MP_Gun_MechaniteStinger</defName>
+    <label>mechanite stinger</label>
+    <description>A lightweight dart rifle equipped with armor-piercing darts. These are filled with plague-inducing mechanites, spreading the Mechanite Plague at a safe distance. Thanks to the lack of recoil, the user can quickly move after firing.</description>
+    <graphicData>
+      <texPath>Things/Weapons/DartRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <weaponTags>
+      <li>MP_IndustrialPlagueRanged</li>
+    </weaponTags>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <Mass>2.7</Mass>
+      <AccuracyTouch>0.60</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.80</AccuracyLong>
+      <RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>60</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <MP_MechaniteCanister>10</MP_MechaniteCanister>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>PrecisionRifling</li>
+        <li>MP_MechaniteWeaponsIndustrial</li>
+      </researchPrerequisites>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>MP_Bullet_MechaniteDartHeavy</defaultProjectile>
+        <warmupTime>1.8</warmupTime>
+        <range>40.2</range>
+        <soundCast>Bow_Small</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>7</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <modExtensions>
+        <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+            <addHediffChance>1.00</addHediffChance>
+            <hediffLowerValue>0.23</hediffLowerValue>
+            <hediffUpperValue>0.26</hediffUpperValue>
+        </li>
+    </modExtensions>
+  </ThingDef>
+  
+  
+  
+  <!-- Mechanite Tempest -->
+
+    <ThingDef ParentName="BaseBullet">
+    <defName>MP_Bullet_MechaniteFrag</defName>
+    <label>mechanite shard</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>MP_BulletInfect</damageDef>
+      <damageAmountBase>7</damageAmountBase>
+      <stoppingPower>0.5</stoppingPower>
+      <armorPenetrationBase>0.2</armorPenetrationBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseHumanMakeablePlagueGun">
+    <defName>MP_Gun_MechaniteTempest</defName>
+    <label>mechanite tempest</label>
+    <description>A mid-ranged rifle that fires a swarm of razor-sharp shards, each with a high chance to infect the target with the Mechanite Plague. Its low accuracy lends it better to hitting groups of targets. Acts as a good midpoint between conventional weaponry and plague-inducing weaponry.</description>
+    <graphicData>
+      <texPath>Things/Weapons/ShrapnelGun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+    <weaponTags>
+      <li>MP_IndustrialPlagueRanged</li>
+    </weaponTags>
+    <statBases>
+      <WorkToMake>70000</WorkToMake>
+      <Mass>3.5</Mass>
+      <AccuracyTouch>0.35</AccuracyTouch>
+      <AccuracyShort>0.38</AccuracyShort>
+      <AccuracyMedium>0.35</AccuracyMedium>
+      <AccuracyLong>0.25</AccuracyLong>
+      <RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <MP_MechaniteCanister>8</MP_MechaniteCanister>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisites>
+        <li>PrecisionRifling</li>
+        <li>MP_MechaniteWeaponsIndustrial</li>
+      </researchPrerequisites>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>MP_Bullet_MechaniteFrag</defaultProjectile>
+        <warmupTime>1.8</warmupTime>
+        <range>27.2</range>
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+        <burstShotCount>7</burstShotCount>
+        <soundCast>Shot_Minigun</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>8</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+    <modExtensions>
+        <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+            <addHediffChance>0.75</addHediffChance>
+            <hediffLowerValue>0.06</hediffLowerValue>
+            <hediffUpperValue>0.08</hediffUpperValue>
+        </li>
+    </modExtensions>
+  </ThingDef>
+  
+</Defs>

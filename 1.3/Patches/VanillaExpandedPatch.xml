@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+A simple patching operation for Vanilla Achievements Expanded.
+At the moment, does the following:
+- enables shield use with some weapons
+-->
+
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Expanded Framework</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <!-- Patch appropriate weapons to be usable with shields -->
+                <li Class="PatchOperationAddModExtension">
+                    <xpath>/Defs/ThingDef[defName="MP_MeleeWeapon_PlagueNeedle"]</xpath>
+                    <value>
+                        <li Class="VFECore.ThingDefExtension">
+                            <usableWithShields>true</usableWithShields>
+                        </li>
+                    </value>
+                </li>
+				
+				<li Class="PatchOperationAddModExtension">
+                    <xpath>/Defs/ThingDef[defName="MP_MeleeWeapon_PlagueClaw"]</xpath>
+                    <value>
+                        <li Class="VFECore.ThingDefExtension">
+                            <usableWithShields>true</usableWithShields>
+                        </li>
+                    </value>
+                </li>
+				
+				<li Class="PatchOperationAddModExtension">
+                    <xpath>/Defs/ThingDef[defName="MP_Gun_MechaniteDarter"]</xpath>
+                    <value>
+                        <li Class="VFECore.ThingDefExtension">
+                            <usableWithShields>true</usableWithShields>
+                        </li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

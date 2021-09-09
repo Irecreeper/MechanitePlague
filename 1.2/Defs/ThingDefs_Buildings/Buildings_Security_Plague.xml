@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>  
+
+    <!-- Plague Turret -->
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>MP_Turret_PlagueTurret</defName>
+        <label>plague turret</label>
+        <description>A portable automatic, long-ranged turret, designed to fire Mechanite Plague inflicitng darts. Requires fresh doses of mechanites to replenish its ammo. May explode when damaged. Its dumb AI brain can't be directly controlled, so beware of friendly fire.</description>
+        <thingClass>Building_TurretGun</thingClass>
+        <graphicData>
+          <texPath>Things/Buildings/PlagueTurretBase</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(1.5,1.5)</drawSize>
+          <damageData>
+            <rect>(0.2,0.2,0.6,0.6)</rect>
+          </damageData>
+          <shadowData>
+            <volume>(0.27,0.25,0.27)</volume>
+            <offset>(0,0,0)</offset>
+          </shadowData>
+        </graphicData>
+        <uiIconPath>Things/Buildings/PlagueTurretIcon</uiIconPath>
+        <uiIconScale>0.90</uiIconScale>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <thingCategories>
+          <li>BuildingsSecurity</li>
+        </thingCategories>
+        <statBases>
+          <MaxHitPoints>90</MaxHitPoints>
+          <Flammability>0.7</Flammability>
+          <WorkToBuild>1800</WorkToBuild>
+          <Mass>8</Mass>
+          <Beauty>-20</Beauty>
+          <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <comps>
+          <li Class="CompProperties_Explosive">
+            <wickTicks>240</wickTicks>
+            <explosiveRadius>2.7</explosiveRadius>
+            <explosiveDamageType>Bomb</explosiveDamageType>
+            <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+          </li>
+          <li Class="CompProperties_Forbiddable"/>
+          <li Class="CompProperties_Power">
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>70</basePowerConsumption>
+          </li>
+          <li Class="CompProperties_Flickable"/>
+          <li Class="CompProperties_Breakdownable"/>
+          <li Class="CompProperties_Refuelable">
+            <fuelLabel>Mechanite doses until refill</fuelLabel>
+            <fuelGizmoLabel>Mechanite doses</fuelGizmoLabel>
+            <outOfFuelMessage>Cannot shoot: Needs more mechanites</outOfFuelMessage>
+            <fuelFilter><thingDefs><li>MP_MechaniteCanister</li></thingDefs></fuelFilter>
+            <fuelCapacity>60</fuelCapacity>   
+            <fuelMultiplier>15</fuelMultiplier> <!-- 15 shots per canister -->
+            <initialFuelPercent>1</initialFuelPercent>
+            <autoRefuelPercent>0.3333</autoRefuelPercent>
+            <showFuelGizmo>true</showFuelGizmo>
+            <minimumFueledThreshold>1</minimumFueledThreshold>
+            <factorByDifficulty>true</factorByDifficulty>
+            <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+            <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+          </li>
+        </comps>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <hasTooltip>true</hasTooltip>
+        <stuffCategories>
+          <li>Metallic</li>
+        </stuffCategories>
+        <costStuffCount>25</costStuffCount>
+        <costList>
+          <Steel>50</Steel>
+          <ComponentIndustrial>3</ComponentIndustrial>
+          <MP_MechaniteCanister>4</MP_MechaniteCanister>
+        </costList>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <designationCategory>Security</designationCategory>
+        <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+        <building>
+          <combatPower>60</combatPower>
+          <ai_combatDangerous>true</ai_combatDangerous>
+          <turretGunDef>MP_Gun_PlagueTurret</turretGunDef>
+          <turretBurstCooldownTime>4.2</turretBurstCooldownTime>
+        </building>
+        <placeWorkers>
+          <li>PlaceWorker_TurretTop</li>
+          <li>PlaceWorker_ShowTurretRadius</li>
+        </placeWorkers>
+        <designationHotKey>Misc2</designationHotKey>
+        <researchPrerequisites>
+          <li>MP_MechaniteSecurity</li>
+        </researchPrerequisites>
+    </ThingDef>
+    
+    <ThingDef ParentName="BaseBullet">
+    <defName>MP_Bullet_MechaniteDartTurret</defName>
+    <label>mechanite dart</label>
+    <graphicData>
+      <texPath>Things/Projectile/Dart</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>MP_BulletInfect</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+      <stoppingPower>0.5</stoppingPower>
+      <armorPenetrationBase>0.2</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>MP_Gun_PlagueTurret</defName>
+        <label>plague turret gun</label>
+        <description>A simple automatic gun made to be mounted on a turret. Fires plague-inducing darts.</description>
+        <graphicData>
+          <texPath>Things/Buildings/PlagueTurretGun</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+          <AccuracyTouch>0.60</AccuracyTouch>
+          <AccuracyShort>0.75</AccuracyShort>
+          <AccuracyMedium>0.80</AccuracyMedium>
+          <AccuracyLong>0.70</AccuracyLong>
+          <RangedWeapon_Cooldown>4.2</RangedWeapon_Cooldown>
+          <DeteriorationRate>0</DeteriorationRate>
+          <Mass>5</Mass>
+          <Flammability>0</Flammability>
+        </statBases>
+        <verbs>
+          <li>
+            <verbClass>Verb_Shoot</verbClass>
+            <defaultProjectile>MP_Bullet_MechaniteDartTurret</defaultProjectile>
+            <warmupTime>0</warmupTime>
+            <range>40.4</range>
+            <soundCast>GunShotA</soundCast>
+            <soundCastTail>GunTail_Light</soundCastTail>
+            <muzzleFlashScale>9</muzzleFlashScale>
+            <consumeFuelPerShot>1</consumeFuelPerShot>
+          </li>
+        </verbs>
+        <modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>1.00</addHediffChance>
+                <hediffLowerValue>0.15</hediffLowerValue>
+                <hediffUpperValue>0.18</hediffUpperValue>
+            </li>
+        </modExtensions>
+    </ThingDef>
+    
+    
+    
+    <!-- Plague Landmine -->
+    
+    <ThingDef ParentName="TrapIEDBase">
+    <defName>MP_TrapIED_PlagueSharpnel</defName>
+    <label>IED plague shrapnel trap</label>
+    <description>A high explosive shell, combined with shrapel that inflicts the Mechanite Plague. Detonates in a wide area on touch or bullet impact, but deals very little damage. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+        <graphicData>
+          <texPath>Things/Buildings/IEDPlague</texPath>
+        </graphicData>
+        <costList>
+          <MP_Shell_Plague>2</MP_Shell_Plague>
+        </costList>
+        <designationHotKey>Misc7</designationHotKey>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>5.2</explosiveRadius>
+                <explosiveDamageType>MP_BlastInfect</explosiveDamageType>
+                <damageAmountBase>12</damageAmountBase>
+                <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+                <wickTicks>15</wickTicks>
+                <startWickOnDamageTaken>
+                    <li>Bullet</li>
+                    <li>Arrow</li>
+                    <li>ArrowHighVelocity</li>
+                </startWickOnDamageTaken>
+            </li>
+        </comps>
+        <specialDisplayRadius>5.2</specialDisplayRadius>
+    </ThingDef>
+    
+    
+</Defs>

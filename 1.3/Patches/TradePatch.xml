@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/TraderKindDef[defName = "Caravan_Outlander_Exotic" or defName = "Orbital_Exotic"]/stockGenerators</xpath>
+        <value>
+            <li Class="StockGenerator_SingleDef">
+                <thingDef>MP_MechaniteCanister</thingDef>
+                <countRange>20~30</countRange>
+            </li>
+        </value>
+    </Operation>
+</Patch>

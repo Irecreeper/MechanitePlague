@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    
+    <!-- Weapon Research -->
+
+    <ResearchProjectDef>
+        <defName>MP_MechaniteWeaponsNeolithic</defName>
+        <label>plague coating</label>
+        <description>Craft tribal blowpipes and knives that can spread the Mechanite Plague through plague-based poisons.</description>
+        <baseCost>500</baseCost>
+        <tab>MechanitePlague</tab>
+        <techLevel>Neolithic</techLevel>
+        <researchViewX>0.00</researchViewX>
+        <researchViewY>0.00</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef>
+        <defName>MP_MechaniteWeaponsIndustrial</defName>
+        <label>plague dart guns</label>
+        <description>Craft industrial weaponry that specializes in firing darts that spread the Mechanite Plague.</description>
+        <baseCost>1500</baseCost>
+        <tab>MechanitePlague</tab>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>Gunsmithing</li>
+            <li>MP_MechaniteWeaponsNeolithic</li>
+        </prerequisites>
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>0.00</researchViewY>
+    </ResearchProjectDef>
+	
+	<ResearchProjectDef>
+        <defName>MP_MechaniteWeaponsSpacer</defName>
+        <label>plague munitions</label>
+        <description>Craft spacer tech equipment that allows all weapons to apply the mechanite plague.</description>
+        <baseCost>3000</baseCost>
+        <tab>MechanitePlague</tab>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>AdvancedFabrication</li>
+            <li>MP_MechaniteWeaponsIndustrial</li>
+        </prerequisites>
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>0.00</researchViewY>
+    </ResearchProjectDef>
+	
+	<ResearchProjectDef>
+        <defName>MP_MechaniteWeaponsMelee</defName>
+        <label>plagued blades</label>
+        <description>Craft medieval melee weaponry that can consistently apply the Mechanite Plague with an improved poison mixture.</description>
+        <baseCost>800</baseCost>
+        <tab>MechanitePlague</tab>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>MP_MechaniteWeaponsNeolithic</li>
+        </prerequisites>
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>0.60</researchViewY>
+    </ResearchProjectDef>
+    
+    <ResearchProjectDef>
+        <defName>MP_MechaniteSecurity</defName>
+        <label>plague turrets</label>
+        <description>Construct turrets that can inflict the Mechanite Plague through darts or shrapnel.</description>
+        <baseCost>800</baseCost>
+        <tab>MechanitePlague</tab>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>MP_MechaniteWeaponsIndustrial</li>
+            <li>GunTurrets</li>
+        </prerequisites>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>0.60</researchViewY>
+    </ResearchProjectDef>
+    
+    <ResearchProjectDef>
+        <defName>MP_MechaniteMortar</defName>
+        <label>plague shrapnel shells</label>
+        <description>Construct mortar shells that explode into plague-inducing shrapnel over a wide area.</description>
+        <baseCost>1000</baseCost>
+        <tab>MechanitePlague</tab>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>MP_MechaniteWeaponsIndustrial</li>
+            <li>Mortars</li>
+        </prerequisites>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>1.20</researchViewY>
+    </ResearchProjectDef>
+    
+    <ResearchProjectDef>
+        <defName>MP_MechaniteMedicine</defName>
+        <label>mechanite medicine</label>
+        <description>Learn how to modify the Mechanite Plague's mechanites to create a vaccine, as well as a combat-boosting drug.</description>
+        <baseCost>1200</baseCost>
+        <tab>MechanitePlague</tab>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>DrugProduction</li>
+        </prerequisites>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>1.80</researchViewY>
+    </ResearchProjectDef>
+	
+	<ResearchProjectDef>
+        <defName>MP_LuciferiumProduction</defName>
+        <label>mechanite conversion</label>
+        <description>Learn how to modify the Mechanite Plague's mechanites to create Luciferium. It'll take a lot of canisters and work, but it might be worth it!</description>
+        <baseCost>3000</baseCost>
+        <tab>MechanitePlague</tab>
+        <techLevel>Spacer</techLevel>
+        <prerequisites>
+            <li>MP_MechaniteMedicine</li>
+			<li>AdvancedFabrication</li>
+        </prerequisites>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>1.80</researchViewY>
+    </ResearchProjectDef>
+</Defs>
