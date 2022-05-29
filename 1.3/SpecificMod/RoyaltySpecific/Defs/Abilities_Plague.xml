@@ -3,7 +3,7 @@
 	<AbilityDef ParentName="PsycastBase">
 		<defName>MP_RaiseBursterSingle</defName>
 		<label>mechskip</label>
-		<description>A morally dubious psycast that allows one to teleport a host of plague-inducing Mechanites into a corpse. In an instant, a Burster will spring forth from the body to assault the caster's enemies. Only a fresh, non-rotted humanoid corpse will work.\n\nBursters spawned through this method will disintegrate upon death, leaving no corpse behind.</description>
+		<description>A morally dubious psycast that allows one to teleport a host of plague-inducing Mechanites into a corpse. In an instant, a Burster will spring forth from the body to assault the caster's enemies. Works with any corpses from creatures that'd normally spawn a Burster, so what this works on is based on the mod's settings.\n\nBursters spawned through this method will disintegrate upon death, leaving no corpse behind.</description>
 		<level>2</level>
 		<iconPath>Abilities/MechskipSingle</iconPath>
 		<writeCombatLog>True</writeCombatLog>
@@ -34,7 +34,7 @@
 	<AbilityDef ParentName="PsycastBase">
 		<defName>MP_RaiseBursterMass</defName>
 		<label>mass mechskip</label>
-		<description>A morally dubious psycast that allows one to teleport a host of plague-inducing Mechanites into a whole field of corpses. In an instant, Bursters will spring forth from each body to assault the caster's enemies. Only fresh, non-rotted humanoid corpses will work.\n\nBursters spawned through this method will disintegrate upon death, leaving no corpse behind. Consider keeping a fridge of corpses around?</description>
+		<description>A morally dubious psycast that allows one to teleport a host of plague-inducing Mechanites into a whole field of corpses. In an instant, Bursters will spring forth from each body to assault the caster's enemies. Works with any corpses from creatures that'd normally spawn a Burster, so what this works on is based on the mod's settings.\n\nBursters spawned through this method will disintegrate upon death, leaving no corpse behind. Consider keeping a fridge of corpses around?</description>
 		<level>6</level>
 		<iconPath>Abilities/MechskipMass</iconPath>
 		<writeCombatLog>True</writeCombatLog>

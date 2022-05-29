@@ -7,18 +7,21 @@ namespace MP_MechanitePlague {
         public float addHediffChance = 0.05f;
         public float hediffLowerValue = 0.10f;
         public float hediffUpperValue = 0.15f;
+        public int extraSpawns = 0;
     }
 
     //A ThingComp to store the faction of the previous infector.
     public class ThingComp_InfectorFaction : ThingComp
     {
         public Faction infectorFaction = Faction.OfMechanoids;
+        public int extraSpawns = 0;
 
         public override void PostExposeData()
         {
             base.PostExposeData();
 
             Scribe_References.Look(ref infectorFaction, "infectorFaction");
+            Scribe_Values.Look(ref extraSpawns, "extraSpawns", 0);
         }
     }
 
@@ -26,7 +29,7 @@ namespace MP_MechanitePlague {
     public class PlagueMethodHolder : DamageWorker_AddInjury
     {
         //Infect the target.
-        public static void InfectPawn(Pawn hitPawn, Faction newFaction, float lowerVal, float higherVal)
+        public static void InfectPawn(Pawn hitPawn, Faction newFaction, float lowerVal, float higherVal, int extraSpawns)
         {
             //check if the target has the plague
             Hediff plagueOnPawn = hitPawn.health?.hediffSet?.GetFirstHediffOfDef(HediffDef.Named("MP_MechanitePlague"));
@@ -37,6 +40,7 @@ namespace MP_MechanitePlague {
             {
                 plagueOnPawn.Severity += randomSeverity;
                 hitPawn.GetComp<ThingComp_InfectorFaction>().infectorFaction = newFaction;
+                hitPawn.GetComp<ThingComp_InfectorFaction>().extraSpawns = Math.Max(extraSpawns, hitPawn.GetComp<ThingComp_InfectorFaction>().extraSpawns);
             }
             else
             {
@@ -46,6 +50,7 @@ namespace MP_MechanitePlague {
                     hediff.Severity = randomSeverity;
                     hitPawn.health.AddHediff(hediff);
                     hitPawn.GetComp<ThingComp_InfectorFaction>().infectorFaction = newFaction;
+                    hitPawn.GetComp<ThingComp_InfectorFaction>().extraSpawns = extraSpawns;
                 }
             }
         }
@@ -61,7 +66,7 @@ namespace MP_MechanitePlague {
                 if (rand <= plagueInfo.addHediffChance)
                 {
                     Thing attacker = dinfo.Instigator;
-                    PlagueMethodHolder.InfectPawn(hitPawn, attacker.Faction, plagueInfo.hediffLowerValue, plagueInfo.hediffUpperValue);
+                    PlagueMethodHolder.InfectPawn(hitPawn, attacker.Faction, plagueInfo.hediffLowerValue, plagueInfo.hediffUpperValue, plagueInfo.extraSpawns);
                 }
             }
         }
@@ -95,7 +100,7 @@ namespace MP_MechanitePlague {
                 if (rand <= Props.addHediffChance)
                 {
                     Thing attacker = dinfo.Instigator;
-                    PlagueMethodHolder.InfectPawn(hitPawn, attacker.Faction, Props.hediffLowerValue, Props.hediffUpperValue);
+                    PlagueMethodHolder.InfectPawn(hitPawn, attacker.Faction, Props.hediffLowerValue, Props.hediffUpperValue, Props.extraSpawns);
                 }
             }
 
@@ -138,7 +143,7 @@ namespace MP_MechanitePlague {
                 if (rand <= Props.addHediffChance)
                 {
                     Thing attacker = dinfo.Instigator;
-                    PlagueMethodHolder.InfectPawn(hitPawn, attacker.Faction, Props.hediffLowerValue, Props.hediffUpperValue);
+                    PlagueMethodHolder.InfectPawn(hitPawn, attacker.Faction, Props.hediffLowerValue, Props.hediffUpperValue, Props.extraSpawns);
                 }
             }
         }

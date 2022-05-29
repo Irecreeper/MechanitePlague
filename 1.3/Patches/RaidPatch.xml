@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
+
+	<!-- Royalty -->
+
 	<Operation Class="PatchOperationFindMod">
 	  <mods>
 		<li>Royalty</li>
@@ -8,6 +11,7 @@
         <xpath>/Defs/ThingDef[building/minMechClusterPoints]/comps/li[spawnablePawnKinds]/spawnablePawnKinds</xpath>
         <value>
             <li>MP_Mech_Burster</li>
+			<li>MP_Mech_Drider</li>
         </value>
 	  </match>
 	</Operation>
@@ -15,40 +19,133 @@
     <!-- Mechanoid Raids -->
     
 	<Operation Class="PatchOperationAdd">
-	  <xpath>/Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
-	  <value>
-            <li>
-                <!-- Zerg Rush! -->
+		<xpath>/Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
+		<value>
+			<li>
+                <!-- Light Plague -->
                 <kindDef>Combat</kindDef>
                 <commonality>30</commonality>
                 <options>
                     <MP_Mech_Burster>10</MP_Mech_Burster>
-                </options>
-                </li>
-            <li>
-                <!-- Mixed Melee -->
-                <kindDef>Combat</kindDef>
-                <commonality>50</commonality>
-                <options>
-                    <MP_Mech_Burster>15</MP_Mech_Burster>
-                    <Mech_Scyther>10</Mech_Scyther>
+					<MP_Mech_Drider>8</MP_Mech_Drider>
+					<Mech_Scyther>8</Mech_Scyther>
+					<Mech_Lancer>8</Mech_Lancer>
                 </options>
             </li>
             <li>
-                <!-- Varied -->
+                <!-- Zerg Rush! -->
                 <kindDef>Combat</kindDef>
-                <commonality>100</commonality>
+                <commonality>20</commonality>
                 <options>
                     <MP_Mech_Burster>10</MP_Mech_Burster>
-                    <Mech_Centipede>10</Mech_Centipede>
+                </options>
+            </li>
+            <li>
+                <!-- Midrange -->
+                <kindDef>Combat</kindDef>
+                <commonality>30</commonality>
+                <options>
+                    <MP_Mech_Incubator>2</MP_Mech_Incubator>
+					<MP_Mech_Drider>10</MP_Mech_Drider>
                     <Mech_Lancer>10</Mech_Lancer>
-                    <Mech_Scyther>10</Mech_Scyther>
                     <Mech_Pikeman>10</Mech_Pikeman>
                 </options>
             </li>
-	  </value>
+		</value>
 	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers/li[1]/options</xpath>
+		<value>
+			<MP_Mech_Burster>10</MP_Mech_Burster>
+			<MP_Mech_Drider>10</MP_Mech_Drider>
+			<MP_Mech_Incubator>8</MP_Mech_Incubator>
+		</value>
+	</Operation> 
+	
+	<!-- Modded Mechanoid Raids -->
     
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>More Mechanoids</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
+			<value>
+				<li>
+					<!-- Zerg Rush 2: Electric Boogaloo -->
+					<kindDef>Combat</kindDef>
+					<commonality>30</commonality>
+					<options>
+						<MP_Mech_Burster>10</MP_Mech_Burster>
+						<Mech_Crawler>10</Mech_Crawler>
+					</options>
+				</li>
+				<li>
+					<!-- Mixed Heavy -->
+					<kindDef>Combat</kindDef>
+					<commonality>60</commonality>
+					<options>
+						<MP_Mech_Incubator>10</MP_Mech_Incubator>
+						<Mech_Centipede>10</Mech_Centipede>
+						<Mech_Mammoth>10</Mech_Mammoth>
+						<Mech_Assaulter>10</Mech_Assaulter>
+						<Mech_Pikeman>10</Mech_Pikeman>
+					</options>
+				</li>
+				<li>
+					<!-- Mixed Light -->
+					<kindDef>Combat</kindDef>
+					<commonality>60</commonality>
+					<options>
+						<MP_Mech_Drider>10</MP_Mech_Drider>
+						<Mech_Scyther>10</Mech_Scyther>
+						<Mech_Lancer>10</Mech_Lancer>
+						<Mech_Skullywag>10</Mech_Skullywag>
+						<Mech_Assaulter>10</Mech_Assaulter>
+					</options>
+				</li>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Alpha Animals</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
+			<value>
+				<li>
+					<!-- Mixed Heavy -->
+					<kindDef>Combat</kindDef>
+					<commonality>30</commonality>
+					<options>
+						<MP_Mech_Incubator>8</MP_Mech_Incubator>
+						<MP_Mech_Drider>10</MP_Mech_Drider>
+						<AA_Goliath>10</AA_Goliath>
+						<AA_Fireworm>10</AA_Fireworm>
+						<AA_Phalanx>3</AA_Phalanx>
+						<Mech_Centipede>10</Mech_Centipede>
+					</options>
+				</li>
+				<li>
+					<!-- Mixed Light -->
+					<kindDef>Combat</kindDef>
+					<commonality>30</commonality>
+					<options>
+						<MP_Mech_Drider>10</MP_Mech_Drider>
+						<MP_Mech_Burster>10</MP_Mech_Burster>
+						<AA_Aura>10</AA_Aura>
+						<AA_Daggersnout>10</AA_Daggersnout>
+						<Mech_Lancer>10</Mech_Lancer>
+						<Mech_Pikeman>10</Mech_Pikeman>
+					</options>
+				</li>
+			</value>
+		</match>
+	</Operation>
+	
     <!-- Pirate Raids -->
     
     <Operation Class="PatchOperationAdd">

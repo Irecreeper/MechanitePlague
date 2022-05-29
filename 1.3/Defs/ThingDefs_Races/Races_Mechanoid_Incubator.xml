@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="MP_BaseMechanoidPlague">
+    <defName>MP_Mech_Incubator</defName>
+    <label>incubator</label>
+    <description>A mobile factory, the Incubator fires Bursters directly into the enemy lines. It is incredibly durable, but attacks at a snail's pace. In longer engagements, the Incubator can spawn dozens of Bursters on its own.\n\nThe Incubator is named for the cryptosleep casket mounted upon its back. A single, poor soul is contained within, their body used as a breeding ground for dozens of Bursters. Upon death, the victim in the casket will expire as well, their body unleashing a final wave of Bursters. Be prepared for their deathrattle- it could catch a melee trooper offguard and kill them.</description>
+    <tools>
+		<li>
+			<label>right palp</label>
+			<capacities>
+			  <li>Stab</li>
+			</capacities>
+			<power>22</power>
+			<cooldownTime>2.8</cooldownTime>
+			<linkedBodyPartsGroup>LeftPalp</linkedBodyPartsGroup>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+		</li>
+		<li>
+			<label>left palp</label>
+			<capacities>
+			  <li>Stab</li>
+			</capacities>
+			<power>22</power>
+			<cooldownTime>2.8</cooldownTime>
+			<linkedBodyPartsGroup>RightPalp</linkedBodyPartsGroup>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+		</li>
+		<li>
+			<label>head</label>
+			<capacities>
+				<li>Blunt</li>
+			</capacities>
+			<power>16</power>
+			<cooldownTime>2.8</cooldownTime>
+			<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+			<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			<chanceFactor>0.2</chanceFactor>
+		</li>
+    </tools>
+	<statBases>
+		<MoveSpeed>1.8</MoveSpeed>
+		<ArmorRating_Blunt>0.22</ArmorRating_Blunt>
+		<ArmorRating_Sharp>0.65</ArmorRating_Sharp>
+    </statBases>
+    <race>
+		<body>MP_Incubator</body>
+		<deathActionWorkerClass>MP_MechanitePlague.BurstersOnDeath</deathActionWorkerClass>
+		<baseBodySize>2.5</baseBodySize>
+		<baseHealthScale>4.2</baseHealthScale>
+		<soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
+		<soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
+		<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+    </race>
+	<butcherProducts>
+		<Steel>50</Steel>
+		<Plasteel>20</Plasteel>
+		<ComponentIndustrial>2</ComponentIndustrial>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="BaseMechanoidKind">
+    <defName>MP_Mech_Incubator</defName>
+    <label>incubator</label>
+    <race>MP_Mech_Incubator</race>
+    <combatPower>500</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Mechanoid/Incubator</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>4</drawSize>
+          <shadowData>
+            <volume>(0.8, 1.0, 0.8)</volume>
+          </shadowData>
+        </bodyGraphicData>
+      </li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>
+	<weaponTags>
+		<li>MP_MechanoidGunSpawning</li>
+	</weaponTags>
+  </PawnKindDef>
+ </Defs>

@@ -5,7 +5,7 @@
 
     <ThingDef ParentName="BuildingBase">
         <defName>MP_Turret_PlagueTurret</defName>
-        <label>plague turret</label>
+        <label>plague sniper turret</label>
         <description>A portable, automatic, long-ranged turret, designed to fire Mechanite Plague inflicitng darts. It lacks raw damage potential, but the plague application makes it a good supporting defense. Requires fresh doses of mechanites to replenish its ammo. May explode when damaged. Its dumb AI brain can't be directly controlled, so beware of friendly fire.</description>
         <thingClass>Building_TurretGun</thingClass>
 		<drawerType>MapMeshAndRealTime</drawerType>

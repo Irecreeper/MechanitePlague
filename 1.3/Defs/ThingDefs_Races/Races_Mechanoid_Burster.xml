@@ -1,36 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-  <ThingDef ParentName="BaseMechanoid" Name="MP_BaseMechanoidCrawler" Abstract="True">
-    <statBases>
-      <MoveSpeed>5.2</MoveSpeed>
-      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.30</ArmorRating_Sharp>
-    </statBases>
-    <race>
-      <intelligence>ToolUser</intelligence>
-      <thinkTreeMain>Mechanoid</thinkTreeMain>
-      <baseBodySize>0.60</baseBodySize>
-      <lifeStageAges>
-        <li>
-          <def>MechanoidFullyFormed</def>
-          <minAge>0</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
-        </li>
-      </lifeStageAges>
-      <soundCallIntervalRange>1000~2000</soundCallIntervalRange>
-    </race>
-    <butcherProducts>
-      <Steel>5</Steel>
-      <MP_MechaniteCanister>1</MP_MechaniteCanister>
-    </butcherProducts>
-  </ThingDef>
-
-  <ThingDef ParentName="MP_BaseMechanoidCrawler">
+  <ThingDef ParentName="MP_BaseMechanoidPlague">
     <defName>MP_Mech_Burster</defName>
     <label>burster</label>
-    <description>Small spider-like mechanoids. While small and not very harmful, they carry in their fangs mechanites which cause the Mechanite Plague.</description>
+    <description>Small, swift, spider-like mechanoids. While their bites aren't very harmful, they carry in their fangs mechanites which cause the Mechanite Plague. Of course, a Burster is rarely ever encountered alone, usually appearing in terrifying packs that can rip apart any pawn caught unprepared.\n\nTypically formed within the bodies of humanoids, Bursters are generally unstable machines that malfunction after a short time. Those directly formed by a mechanoid hive tend to lack this problem.</description>
     <tools>
       <li>
         <label>fangs</label>
@@ -54,13 +27,23 @@
         <chanceFactor>0.2</chanceFactor>
       </li>
     </tools>
+	<statBases>
+		<MoveSpeed>5.2</MoveSpeed>
+		<ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+		<ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+    </statBases>
     <race>
       <body>MP_Burster</body>
       <baseHealthScale>0.5</baseHealthScale>
+	  <baseBodySize>0.6</baseBodySize>
       <soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
     </race>
+	<butcherProducts>
+      <Steel>5</Steel>
+      <MP_MechaniteCanister>1</MP_MechaniteCanister>
+    </butcherProducts>
   </ThingDef>
 
   <PawnKindDef ParentName="BaseMechanoidKind">
@@ -73,9 +56,9 @@
         <bodyGraphicData>
           <texPath>Things/Pawn/Mechanoid/Burster</texPath>
           <graphicClass>Graphic_Multi</graphicClass>
-          <drawSize>0.8</drawSize>
+          <drawSize>1.1</drawSize>
           <shadowData>
-            <volume>(0.4, 0.8, 0.4)</volume>
+            <volume>(0.35, 0.5, 0.35)</volume>
           </shadowData>
         </bodyGraphicData>
       </li>

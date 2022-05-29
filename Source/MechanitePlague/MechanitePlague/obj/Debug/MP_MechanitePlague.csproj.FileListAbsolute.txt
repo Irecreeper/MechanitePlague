@@ -2,5 +2,5 @@ D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Assemblies\MechanitePl
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlague\obj\Debug\MP_MechanitePlague.csproj.CoreCompileInputs.cache
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlague\obj\Debug\MechanitePlague.dll
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlague\obj\Debug\MP_MechanitePlague.csproj.CopyComplete
-D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlague\obj\Debug\MP_MechanitePlague.csprojAssemblyReference.cache
 D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\1.3\Assemblies\MechanitePlague.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlague\obj\Debug\MP_MechanitePlague.csprojAssemblyReference.cache

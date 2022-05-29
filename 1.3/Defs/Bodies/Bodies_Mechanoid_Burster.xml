@@ -48,42 +48,42 @@
                         </li>
                         <li>
                             <def>SightSensor</def>
-                            <customLabel>first left sight sensor</customLabel>
+                            <customLabel>left first sight sensor</customLabel>
                             <coverage>0.05</coverage>
                         </li>
                         <li>
                             <def>SightSensor</def>
-                            <customLabel>second left sight sensor</customLabel>
+                            <customLabel>left second sight sensor</customLabel>
                             <coverage>0.05</coverage>
                         </li>
                         <li>
                             <def>SightSensor</def>
-                            <customLabel>third left sight sensor</customLabel>
+                            <customLabel>left third sight sensor</customLabel>
                             <coverage>0.05</coverage>
                         </li>
                         <li>
                             <def>SightSensor</def>
-                            <customLabel>fourth left sight sensor</customLabel>
+                            <customLabel>left fourth sight sensor</customLabel>
                             <coverage>0.05</coverage>
                         </li>
                         <li>
                             <def>SightSensor</def>
-                            <customLabel>first right sight sensor</customLabel>
+                            <customLabel>right first sight sensor</customLabel>
                             <coverage>0.05</coverage>
                         </li>
                         <li>
                             <def>SightSensor</def>
-                            <customLabel>second right sight sensor</customLabel>
+                            <customLabel>right second sight sensor</customLabel>
                             <coverage>0.05</coverage>
                         </li>
                         <li>
                             <def>SightSensor</def>
-                            <customLabel>third right sight sensor</customLabel>
+                            <customLabel>right third sight sensor</customLabel>
                             <coverage>0.05</coverage>
                         </li>
                         <li>
                             <def>SightSensor</def>
-                            <customLabel>fourth right sight sensor</customLabel>
+                            <customLabel>right fourth sight sensor</customLabel>
                             <coverage>0.05</coverage>
                         </li>
                         <li>
@@ -114,72 +114,72 @@
                 
                 <li>
                     <def>MP_MechanicalTendril</def>
-                    <customLabel>front left tendril</customLabel>
+                    <customLabel>left first tendril</customLabel>
                     <coverage>0.05</coverage>
                     <parts>
                         <li>
                             <def>MP_MechanicalGrasper</def>
-                            <customLabel>front left grasper</customLabel>
+                            <customLabel>left first grasper</customLabel>
                             <coverage>0.2</coverage>
                         </li>
                     </parts>
                 </li>
                 <li>
                     <def>MP_MechanicalTendril</def>
-                    <customLabel>middle left tendril</customLabel>
+                    <customLabel>left second tendril</customLabel>
                     <coverage>0.05</coverage>
                     <parts>
                         <li>
                             <def>MP_MechanicalGrasper</def>
-                            <customLabel>middle left grasper</customLabel>
+                            <customLabel>left second grasper</customLabel>
                             <coverage>0.2</coverage>
                         </li>
                     </parts>
                 </li>
                 <li>
                     <def>MP_MechanicalTendril</def>
-                    <customLabel>rear left tendril</customLabel>
+                    <customLabel>left third tendril</customLabel>
                     <coverage>0.05</coverage>
                     <parts>
                         <li>
                             <def>MP_MechanicalGrasper</def>
-                            <customLabel>rear left grasper</customLabel>
+                            <customLabel>left third grasper</customLabel>
                             <coverage>0.2</coverage>
                         </li>
                     </parts>
                 </li>
                 <li>
                     <def>MP_MechanicalTendril</def>
-                    <customLabel>front right tendril</customLabel>
+                    <customLabel>right first tendril</customLabel>
                     <coverage>0.05</coverage>
                     <parts>
                         <li>
                             <def>MP_MechanicalGrasper</def>
-                            <customLabel>front right grasper</customLabel>
+                            <customLabel>right first grasper</customLabel>
                             <coverage>0.2</coverage>
                         </li>
                     </parts>
                 </li>
                 <li>
                     <def>MP_MechanicalTendril</def>
-                    <customLabel>middle right tendril</customLabel>
+                    <customLabel>right second tendril</customLabel>
                     <coverage>0.05</coverage>
                     <parts>
                         <li>
                             <def>MP_MechanicalGrasper</def>
-                            <customLabel>middle right grasper</customLabel>
+                            <customLabel>right second grasper</customLabel>
                             <coverage>0.2</coverage>
                         </li>
                     </parts>
                 </li>
                 <li>
                     <def>MP_MechanicalTendril</def>
-                    <customLabel>rear right tendril</customLabel>
+                    <customLabel>right third tendril</customLabel>
                     <coverage>0.05</coverage>
                     <parts>
                         <li>
                             <def>MP_MechanicalGrasper</def>
-                            <customLabel>rear right grasper</customLabel>
+                            <customLabel>right third grasper</customLabel>
                             <coverage>0.2</coverage>
                         </li>
                     </parts>

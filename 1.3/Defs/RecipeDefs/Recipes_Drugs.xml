@@ -6,12 +6,12 @@
 	<RecipeDef>
 		<defName>MP_MakeLuciferium</defName>
 		<label>make luciferium</label>
-		<description>Make luciferium by reprogramming several batches of Mechanite Canisters. Produces 6 Luciferium.</description>
+		<description>Make luciferium by reprogramming several batches of Mechanite Canisters. Produces 5 Luciferium.</description>
 		<jobString>Making luciferium from mechanites.</jobString>
 		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
 		<effectWorking>Cook</effectWorking>
 		<soundWorking>Recipe_Machining</soundWorking>
-		<workAmount>12000</workAmount>
+		<workAmount>10000</workAmount>
 		<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
 		<ingredients>
 		  <li>
@@ -20,7 +20,7 @@
 				<li>ComponentSpacer</li>
 			  </thingDefs>
 			</filter>
-			<count>2</count>
+			<count>1</count>
 		  </li>
 		  <li>
 			<filter>
@@ -28,7 +28,7 @@
 				<li>MP_MechaniteCanister</li>
 			  </thingDefs>
 			</filter>
-			<count>24</count>
+			<count>20</count>
 		  </li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -38,7 +38,7 @@
 		  </thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<Luciferium>6</Luciferium>
+			<Luciferium>5</Luciferium>
 		</products>
 		<researchPrerequisites>
 			<li>MP_LuciferiumProduction</li>

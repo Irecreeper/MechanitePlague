@@ -41,7 +41,7 @@ namespace MP_MechanitePlague
         static void Prefix(Pawn pawn, float totalDamage, DamageInfo dinfo, DamageWorker.DamageResult result)
         {
             //Check through each piece of apparel the attacker is wearing.
-            if (dinfo.Instigator != null && dinfo.Instigator is Pawn attackerPawn && attackerPawn.RaceProps.Humanlike)
+            if (dinfo.Instigator != null && dinfo.Instigator is Pawn attackerPawn && attackerPawn.RaceProps.Humanlike && dinfo.Weapon != null && dinfo.Weapon.thingClass != typeof(Building_TurretGun))
             {
                 System.Collections.Generic.List<Apparel> appList = attackerPawn.apparel.WornApparel;
                 if (appList != null)
@@ -58,10 +58,5 @@ namespace MP_MechanitePlague
                 }
             }
         }
-    }
-
-    //GOAL: Prefix this method.
-    //VFE.Mechanoids.HarmonyPatches.MachinesDie
-
-    
+    }    
 }

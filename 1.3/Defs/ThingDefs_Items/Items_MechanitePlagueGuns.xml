@@ -30,7 +30,6 @@
     
     
     <!-- Mechanite Blowpipe -->
-    
     <ThingDef ParentName="BaseProjectileNeolithic">
         <defName>MP_Bullet_MechaniteBlowdart</defName>
         <label>mechanite blowdart</label>
@@ -50,7 +49,7 @@
     <ThingDef ParentName="BaseWeaponNeolithic">
         <defName>MP_Gun_MechaniteBlowpipe</defName>
         <label>mechanite blowpipe</label>
-        <description>A hollow wooden tube that fires metallic darts, tipped with the contents of a Mechanite Canister. The darts aren't very potent, giving them a chance to not apply the Mechanite Plague.</description>
+        <description>A hollow wooden tube that fires metallic darts, tipped with the contents of a Mechanite Canister. The darts aren't very potent, giving them a chance to not apply the Mechanite Plague. While not very deadly alone, a horde of tribals with blowpipes is a force to be reckoned with.</description>
         <graphicData>
           <texPath>Things/Weapons/Blowpipe</texPath>
           <graphicClass>Graphic_Single</graphicClass>
@@ -113,7 +112,6 @@
     </ThingDef>
     
     <!-- Mechanite Darter -->
-    
     <ThingDef ParentName="BaseBullet">
     <defName>MP_Bullet_MechaniteDart</defName>
     <label>mechanite dart</label>
@@ -133,7 +131,7 @@
   <ThingDef ParentName="BaseHumanMakeablePlagueGun">
     <defName>MP_Gun_MechaniteDarter</defName>
     <label>mechanite darter</label>
-    <description>A lightweight, quick-firing dart pistol. It's a bit on the inaccurate side, but the darts it fires will apply the Mechanite Plague. Thanks to the lack of recoil, the user can quickly move after firing.</description>
+    <description>A lightweight, quick-firing dart pistol. It's a bit on the inaccurate side, but the darts it fires will apply the Mechanite Plague. Thanks to the lack of recoil, the user can quickly move after firing. It deals less damage than conventional firearms.</description>
     <graphicData>
       <texPath>Things/Weapons/DartPistol</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -209,7 +207,6 @@
   
   
   <!-- Mechanite Stinger -->
-  
   <ThingDef ParentName="BaseBullet">
     <defName>MP_Bullet_MechaniteDartHeavy</defName>
     <label>heavy mechanite dart</label>
@@ -229,7 +226,7 @@
   <ThingDef ParentName="BaseHumanMakeablePlagueGun">
     <defName>MP_Gun_MechaniteStinger</defName>
     <label>mechanite stinger</label>
-    <description>A lightweight dart rifle equipped with armor-piercing darts. These are filled with plague-inducing mechanites, spreading the Mechanite Plague at a safe distance. Thanks to the lack of recoil, the user can quickly move after firing.</description>
+    <description>A lightweight dart rifle equipped with armor-piercing darts. These are filled with plague-inducing mechanites, spreading the Mechanite Plague at a safe distance. Thanks to the lack of recoil, the user can quickly move after firing. It deals less damage than conventional firearms.</description>
     <graphicData>
       <texPath>Things/Weapons/DartRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -305,7 +302,6 @@
   
   
   <!-- Mechanite Tempest -->
-
     <ThingDef ParentName="BaseBullet">
     <defName>MP_Bullet_MechaniteFrag</defName>
     <label>mechanite shard</label>
@@ -336,7 +332,7 @@
       <li>MP_IndustrialPlagueRanged</li>
     </weaponTags>
     <statBases>
-      <WorkToMake>70000</WorkToMake>
+      <WorkToMake>50000</WorkToMake>
       <Mass>3.5</Mass>
       <AccuracyTouch>0.35</AccuracyTouch>
       <AccuracyShort>0.38</AccuracyShort>
@@ -400,4 +396,290 @@
     </modExtensions>
   </ThingDef>
   
+  
+  
+	<!-- Mechanite Slugger -->
+	<ThingDef ParentName="BaseBullet">
+		<defName>MP_Bullet_MechaniteFragShotgun</defName>
+		<label>mechanite shard blast</label>
+		<graphicData>
+			<texPath>Things/Projectile/Bullet_Shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>MP_BulletInfect</damageDef>
+			<damageAmountBase>18</damageAmountBase>
+			<stoppingPower>3</stoppingPower>
+			<armorPenetrationBase>0.35</armorPenetrationBase>
+			<speed>65</speed>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseHumanMakeablePlagueGun">
+		<defName>MP_Gun_MechaniteSlugger</defName>
+		<label>mechanite slugger</label>
+		<description>A spacer-tech shotgun that can fire two quick blasts of Mechanite Plague infected shards with fair accuracy, without sacrificing any damage output like most plague-based weaponry. Foes damaged by this weapon are infected with a stronger version of the Mechanite Plague, causing them to spawn 1 addition Burster upon death.</description>
+		<graphicData>
+			<texPath>Things/Weapons/PlagueSlugger</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Shotgun</soundInteract>
+		<weaponClasses>
+			<li>ShortShots</li>
+		</weaponClasses>
+		<weaponTags>
+			<li>SpacerGun</li>
+			<li>MP_MechanoidGunPlague</li>
+		</weaponTags>
+		<statBases>
+			<WorkToMake>55000</WorkToMake>
+			<Mass>3.4</Mass>
+			<AccuracyTouch>0.70</AccuracyTouch>
+			<AccuracyShort>0.76</AccuracyShort>
+			<AccuracyMedium>0.53</AccuracyMedium>
+			<AccuracyLong>0.40</AccuracyLong>
+			<RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Plasteel>45</Plasteel>
+			<Steel>45</Steel>
+			<ComponentSpacer>2</ComponentSpacer>
+			<MP_MechaniteCanister>15</MP_MechaniteCanister>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisites>
+				<li>MP_MechaniteWeaponsSpacer</li>
+			</researchPrerequisites>
+			<skillRequirements>
+				<Crafting>8</Crafting>
+			</skillRequirements>
+			<recipeUsers Inherit="False">
+				<li>FabricationBench</li>
+			</recipeUsers>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>MP_Bullet_MechaniteFragShotgun</defaultProjectile>
+				<warmupTime>1.1</warmupTime>
+				<range>15.3</range>
+				<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+				<burstShotCount>2</burstShotCount>
+				<soundCast>Shot_Shotgun</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+				<addHediffChance>1.00</addHediffChance>
+				<hediffLowerValue>0.16</hediffLowerValue>
+				<hediffUpperValue>0.18</hediffUpperValue>
+				<extraSpawns>1</extraSpawns>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	
+	
+	<!-- Chaos Launcher -->
+	<ThingDef ParentName="BaseBullet">
+		<defName>MP_Rocket_Chaos</defName>
+		<label>rocket</label>
+		<graphicData>
+			<texPath>Things/Projectile/PlaguePod</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<thingClass>MP_MechanitePlague.Projectile_ExplosiveSpawnChaos</thingClass>
+		<projectile>
+			<damageDef>Smoke</damageDef>
+			<speed>55</speed>
+			<explosionRadius>5.8</explosionRadius>
+			<postExplosionSpawnThingDef>Gas_Smoke</postExplosionSpawnThingDef>
+			<postExplosionSpawnChance>1</postExplosionSpawnChance>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseGun">
+		<defName>MP_Gun_ChaosRocket</defName>
+		<label>chaos launcher</label>
+		<description>A single-shot rocket launcher that fires a lightweight pod a long distance. On impact, the pod explodes into a large cloud of smoke, stunning foes in the area for a short duration. A swarm of Bursters will surge from the target location, ripping through anyone in the immediate area.</description>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Weapons/ChaosLauncher</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>1000</MarketValue>
+			<WorkToMake>65000</WorkToMake>
+			<Mass>8</Mass>
+			<RangedWeapon_Cooldown>4.5</RangedWeapon_Cooldown>
+		</statBases>
+		<generateCommonality>0.2</generateCommonality>
+		<techLevel>Spacer</techLevel>
+		<weaponTags>
+			<li>GunSingleUse</li>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedHeavy</li>
+		</weaponClasses>
+		<tradeTags>
+			<li>ExoticMisc</li>
+		</tradeTags>
+		<thingSetMakerTags>
+			<li>SingleUseWeapon</li>
+		</thingSetMakerTags>
+		<relicChance>0</relicChance>
+		<costList>
+			<Steel>80</Steel>
+			<ComponentSpacer>1</ComponentSpacer>
+			<Chemfuel>50</Chemfuel>
+			<MP_MechaniteCanister>20</MP_MechaniteCanister>
+		</costList>
+		<recipeMaker>
+			<researchPrerequisites>
+				<li>MP_MechaniteWeaponsSpacer</li>
+			</researchPrerequisites>
+			<skillRequirements>
+				<Crafting>9</Crafting>
+			</skillRequirements>
+			<recipeUsers>
+                <li>FabricationBench</li>
+            </recipeUsers>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+            <workSkill>Crafting</workSkill>
+            <effectWorking>Smith</effectWorking>
+            <soundWorking>Recipe_Smith</soundWorking>
+            <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_ShootOneUse</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>MP_Rocket_Chaos</defaultProjectile>
+				<forcedMissRadius>1.3</forcedMissRadius>
+				<warmupTime>4.5</warmupTime>
+				<ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+				<range>38.4</range>
+				<soundCast>InfernoCannon_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<onlyManualCast>true</onlyManualCast>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>11.7</power>
+				<cooldownTime>2.6</cooldownTime>
+			</li>
+		</tools>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>4.5</explosiveRadius>
+				<explosiveDamageType>Smoke</explosiveDamageType>
+				<requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+			</li>
+			<li Class="CompProperties_Biocodable"/>
+		</comps>
+	</ThingDef>
+	
+	<!-- Mechaspider Egg Cannon (mech only) -->
+	<ThingDef ParentName="BaseBullet">
+		<defName>MP_Rocket_EggPod</defName>
+		<label>egg pod</label>
+		<graphicData>
+			<texPath>Things/Projectile/PlaguePod</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<thingClass>MP_MechanitePlague.Projectile_ExplosiveSpawnIncubator</thingClass>
+		<projectile>
+			<damageDef>Smoke</damageDef>
+			<speed>72</speed>
+			<explosionRadius>1.8</explosionRadius>
+			<postExplosionSpawnThingDef>Gas_Smoke</postExplosionSpawnThingDef>
+			<postExplosionSpawnChance>1</postExplosionSpawnChance>
+		</projectile>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseGun">
+		<defName>MP_Gun_IncubatorSpawner</defName>
+		<label>incubator cannon</label>
+		<description>A heavy cannon held within the internals of the Incubator. Fires twin pods that spread smoke on impact, each containing two fully-operational Bursters. While menacing, it has a long cooldown period.\n\nIt is said that the Chaos Launcher was based off the same mechanisms this weapon uses, though far less sophisticated.</description>
+		<tickerType>Normal</tickerType>
+		<graphicData>
+			<texPath>Things/Weapons/InvisibleWeapon</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>2000</MarketValue>
+			<Mass>10</Mass>
+			<RangedWeapon_Cooldown>35</RangedWeapon_Cooldown>
+		</statBases>
+		<techLevel>Spacer</techLevel>
+		<weaponTags>
+			<li>MP_MechanoidGunSpawning</li>
+		</weaponTags>
+		<tradeability>None</tradeability>
+		<destroyOnDrop>true</destroyOnDrop>
+		<relicChance>0</relicChance>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>MP_Rocket_EggPod</defaultProjectile>
+				<forcedMissRadius>5.2</forcedMissRadius>
+				<warmupTime>15</warmupTime>
+				<range>33.5</range>
+				<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+				<burstShotCount>2</burstShotCount>
+				<soundCast>ThrowGrenade</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<onlyManualCast>true</onlyManualCast>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<muzzleFlashScale>14</muzzleFlashScale>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2.6</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
 </Defs>

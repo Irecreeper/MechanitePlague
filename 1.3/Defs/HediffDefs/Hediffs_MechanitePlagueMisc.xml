@@ -2,8 +2,8 @@
 <Defs>
     <HediffDef>
         <defName>MP_SpawnDecay</defName>
-        <label>Mechanoid decay</label>
-        <description>Mechanoids formed from the body of a humanoid are naturally unstable. While they're more than capable of killing others and wiping out a settlement, their reactor will fail after a short time.</description>
+        <label>mechanoid decay</label>
+        <description>This mechanoid is naturally unstable. While they're more than capable of killing others and wiping out a settlement, their reactor will fail after a short time.</description>
         <hediffClass>HediffWithComps</hediffClass>
         <lethalSeverity>1</lethalSeverity>
         <defaultLabelColor>(0.8, 1.0, 0.8)</defaultLabelColor>
@@ -62,8 +62,8 @@
 	
 	<HediffDef>
         <defName>MP_SpawnDecayRemove</defName>
-        <label>Mechanoid disintegration</label>
-        <description>Mechanoids formed from the body of a humanoid are naturally unstable. While they're more than capable of killing others and wiping out a settlement, their reactor will fail after a short time.\n\nIncredibly high levels of instability will cause this mechanoid to crumble and fade out of existence upon death, leaving no corpse. Bursters spawned from further infections from this unit will leave bodies, however.</description>
+        <label>mechanoid disintegration</label>
+        <description>This mechnaoid is naturally unstable. While they're more than capable of killing others and wiping out a settlement, their reactor will fail after a short time.\n\nIncredibly high levels of instability will cause this mechanoid to crumble and fade out of existence upon death, leaving no corpse. Bursters spawned from further infections from this unit will leave bodies, however.</description>
         <hediffClass>HediffWithComps</hediffClass>
         <lethalSeverity>1</lethalSeverity>
         <defaultLabelColor>(0.8, 1.0, 0.8)</defaultLabelColor>
@@ -134,12 +134,12 @@
 			<li Class="HediffCompProperties_SeverityPerDay">
 				<severityPerDay>24</severityPerDay>
 			</li>
-          <li Class="MP_MechanitePlague.HediffCompProperties_MechPlagueSpawnFromCorpse">
-			<thingSpawned>MP_Mech_Burster</thingSpawned>
-            <severityToSpawn>0.00</severityToSpawn>
-			<bonusSpawnCount>5</bonusSpawnCount>
-			<forcePlayerFaction>true</forcePlayerFaction>
-		  </li>
+			<li Class="MP_MechanitePlague.HediffCompProperties_MechPlagueSpawnFromCorpse">
+				<thingSpawned>MP_Mech_Burster</thingSpawned>
+				<severityToSpawn>0.00</severityToSpawn>
+				<bonusSpawnCount>5</bonusSpawnCount>
+				<forcePlayerFaction>true</forcePlayerFaction>
+			</li>
         </comps>
         <stages>
 			<li>
@@ -148,14 +148,14 @@
 				<socialFightChanceFactor>10.0</socialFightChanceFactor>
 				<painOffset>0.4</painOffset>
 				<capMods>
-				<li>
-					<capacity>Consciousness</capacity>
-					<postFactor>0.8</postFactor>
-				</li>
-				<li>
-					<capacity>Moving</capacity>
-					<postFactor>0.5</postFactor>
-				</li>
+					<li>
+						<capacity>Consciousness</capacity>
+						<postFactor>0.8</postFactor>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<postFactor>0.5</postFactor>
+					</li>
 				</capMods>
 			</li>
 			<li>

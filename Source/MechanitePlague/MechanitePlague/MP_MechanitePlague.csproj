@@ -56,6 +56,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BursterCorpseCleaner.cs" />
+    <Compile Include="BurstersOnDeath.cs" />
+    <Compile Include="ChaosLauncher.cs" />
     <Compile Include="MechanitePlagueHediff.cs" />
     <Compile Include="MechanitePlagueHarmony_VFEM.cs" />
     <Compile Include="MechanitePlagueInflictApparel.cs" />

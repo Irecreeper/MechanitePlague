@@ -31,17 +31,31 @@
 	
 	<ResearchProjectDef>
         <defName>MP_MechaniteWeaponsSpacer</defName>
-        <label>plague munitions</label>
-        <description>Craft spacer tech equipment that allows all weapons to apply the mechanite plague.</description>
+        <label>spacer plague guns</label>
+        <description>Craft spacer weaponry that specializes in applying the plague in a variety of ways, as well as equipment that allows all weapons to apply the mechanite plague.</description>
         <baseCost>3000</baseCost>
         <tab>MechanitePlague</tab>
-        <techLevel>Industrial</techLevel>
+        <techLevel>Spacer</techLevel>
         <prerequisites>
             <li>AdvancedFabrication</li>
             <li>MP_MechaniteWeaponsIndustrial</li>
         </prerequisites>
         <researchViewX>3.00</researchViewX>
         <researchViewY>0.00</researchViewY>
+    </ResearchProjectDef>
+	
+	<ResearchProjectDef>
+        <defName>MP_BursterCleanup</defName>
+        <label>burster disassembly</label>
+        <description>Craft spacer buildings that automatically sweep the map for deactivated Bursters, and disassembles them for doubled Mechanite Canisters.</description>
+        <baseCost>1000</baseCost>
+        <tab>MechanitePlague</tab>
+        <techLevel>Spacer</techLevel>
+        <prerequisites>
+            <li>MP_MechaniteWeaponsIndustrial</li>
+        </prerequisites>
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>0.60</researchViewY>
     </ResearchProjectDef>
 	
 	<ResearchProjectDef>

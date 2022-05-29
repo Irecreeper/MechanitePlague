@@ -31,7 +31,7 @@ Uses no custom trackers, because I'm lazy.
 						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
 							<defName>MP_AchievementBursterMilestone1</defName>
 							<label>Friend!</label>
-							<description>Control a Burster.</description>
+							<description>Control a Burster. A humble start.</description>
 							
 							<tracker Class="AchievementsExpanded.KindDefTracker">
 								<kindDefs>
@@ -49,7 +49,7 @@ Uses no custom trackers, because I'm lazy.
 						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
 							<defName>MP_AchievementBursterMilestone2</defName>
 							<label>Friends!</label>
-							<description>Control 4 Bursters at once.</description>
+							<description>Control 4 Bursters at once. A small swarm.</description>
 							
 							<tracker Class="AchievementsExpanded.KindDefTracker">
 								<kindDefs>
@@ -67,7 +67,7 @@ Uses no custom trackers, because I'm lazy.
 						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
 							<defName>MP_AchievementBursterMilestone3</defName>
 							<label>Many Friends!</label>
-							<description>Control 9 Bursters at once.</description>
+							<description>Control 9 Bursters at once. Now we're getting somewhere.</description>
 							
 							<tracker Class="AchievementsExpanded.KindDefTracker">
 								<kindDefs>
@@ -85,7 +85,7 @@ Uses no custom trackers, because I'm lazy.
 						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
 							<defName>MP_AchievementBursterMilestone4</defName>
 							<label>So Many Friends!</label>
-							<description>Control 16 Bursters at once.</description>
+							<description>Control 16 Bursters at once. Now that's an army!</description>
 							
 							<tracker Class="AchievementsExpanded.KindDefTracker">
 								<kindDefs>
@@ -117,6 +117,67 @@ Uses no custom trackers, because I'm lazy.
 							<texPath>Achievements/MP_BursterAchievement5</texPath>
 							<points>75</points>
 						</AchievementsExpanded.AchievementDef>
+						
+						
+						<!-- Murder Achievements: Commit murder!~ -->
+						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
+							<defName>MP_AchievementKillIncubator</defName>
+							<label>Ancient Dangerous</label>
+							<description>Destroy an Incubator. Watch for their payload!</description>
+							
+							<tracker Class="AchievementsExpanded.KillTracker">
+								<raceDef>MP_Mech_Incubator</raceDef>
+								<count>1</count>
+							</tracker>
+							
+							<texPath>Achievements/MP_KillIncubatorAchievement</texPath>
+							<points>25</points>
+						</AchievementsExpanded.AchievementDef>
+						
+						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
+							<defName>MP_AchievementKillDriders</defName>
+							<label>Drider Straits</label>
+							<description>Destroy 10 Driders. Deadly little buggers, right?</description>
+							
+							<tracker Class="AchievementsExpanded.KillTracker">
+								<raceDef>MP_Mech_Drider</raceDef>
+								<count>10</count>
+							</tracker>
+							
+							<texPath>Achievements/MP_KillDridersAchievement</texPath>
+							<points>25</points>
+						</AchievementsExpanded.AchievementDef>
+						
+						
+						<!-- Other Achievements: Do a variety of weird things. -->
+						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
+							<defName>MP_AchievementChaosLauncher</defName>
+							<label>Chaos, Chaos!</label>
+							<description>Obtain a Chaos Launcher. Careful with that thing!</description>
+							
+							<tracker Class="AchievementsExpanded.ItemTracker">
+								<def>MP_Gun_ChaosRocket</def>
+								<count>1</count>
+							</tracker>
+							
+							<texPath>Achievements/MP_ChaosLauncherAchievement</texPath>
+							<points>10</points>
+						</AchievementsExpanded.AchievementDef>
+						
+						<AchievementsExpanded.AchievementDef ParentName="MP_AchievementParent">
+							<defName>MP_AchievementImmunity</defName>
+							<label>Madagascar'd</label>
+							<description>Have 5 pawns with Guardian Mechanites at once. Plague, begone!</description>
+							
+							<tracker Class="AchievementsExpanded.HediffTracker">
+								<def>MP_GuardianMechanitesHigh</def>
+								<count>5</count>
+							</tracker>
+							
+							<texPath>Achievements/MP_ImmunityAchievement</texPath>
+							<points>25</points>
+						</AchievementsExpanded.AchievementDef>
+						
 						<!-- End Achievements -->
 					</value>
 				</li>

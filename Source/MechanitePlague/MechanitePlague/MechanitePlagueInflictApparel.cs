@@ -27,7 +27,7 @@ namespace MP_MechanitePlague
             //Since we're not using props, just sorta... do our own check.
             if (pawn != null && pawn.RaceProps.IsFlesh)
             {
-                PlagueMethodHolder.InfectPawn(pawn, dinfo.Instigator.Faction, totalDamage / 100 * 0.45f, totalDamage / 100 * 0.55f);
+                PlagueMethodHolder.InfectPawn(pawn, dinfo.Instigator.Faction, totalDamage / 100 * 0.45f, totalDamage / 100 * 0.55f, 0);
             }
         }
     }
