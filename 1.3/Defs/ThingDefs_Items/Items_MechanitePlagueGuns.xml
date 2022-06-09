@@ -511,7 +511,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
-		<thingClass>MP_MechanitePlague.Projectile_ExplosiveSpawnChaos</thingClass>
+		<thingClass>Projectile_Explosive</thingClass>
 		<projectile>
 			<damageDef>Smoke</damageDef>
 			<speed>55</speed>
@@ -519,6 +519,13 @@
 			<postExplosionSpawnThingDef>Gas_Smoke</postExplosionSpawnThingDef>
 			<postExplosionSpawnChance>1</postExplosionSpawnChance>
 		</projectile>
+		<comps>
+			<li Class="MP_MechanitePlague.CompProperties_ProjectileSpawnBursters">
+				<amountSpawned>8</amountSpawned>
+				<doStunPulse>true</doStunPulse>
+				<stunPulseRadius>5.8</stunPulseRadius>
+			</li>
+		</comps>
 	</ThingDef>
 	
 	<ThingDef ParentName="BaseGun">
@@ -604,7 +611,7 @@
 		</tools>
 		<comps>
 			<li Class="CompProperties_Explosive">
-				<explosiveRadius>4.5</explosiveRadius>
+				<explosiveRadius>5.8</explosiveRadius>
 				<explosiveDamageType>Smoke</explosiveDamageType>
 				<requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
 			</li>
@@ -612,7 +619,7 @@
 		</comps>
 	</ThingDef>
 	
-	<!-- Mechaspider Egg Cannon (mech only) -->
+	<!-- Incubator Cannon (mech only) -->
 	<ThingDef ParentName="BaseBullet">
 		<defName>MP_Rocket_EggPod</defName>
 		<label>egg pod</label>
@@ -621,7 +628,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>TransparentPostLight</shaderType>
 		</graphicData>
-		<thingClass>MP_MechanitePlague.Projectile_ExplosiveSpawnIncubator</thingClass>
+		<thingClass>Projectile_Explosive</thingClass>
 		<projectile>
 			<damageDef>Smoke</damageDef>
 			<speed>72</speed>
@@ -629,12 +636,18 @@
 			<postExplosionSpawnThingDef>Gas_Smoke</postExplosionSpawnThingDef>
 			<postExplosionSpawnChance>1</postExplosionSpawnChance>
 		</projectile>
+		<comps>
+			<li Class="MP_MechanitePlague.CompProperties_ProjectileSpawnBursters">
+				<amountSpawned>1</amountSpawned>
+				<doStunPulse>false</doStunPulse>
+			</li>
+		</comps>
 	</ThingDef>
 	
 	<ThingDef ParentName="BaseGun">
 		<defName>MP_Gun_IncubatorSpawner</defName>
 		<label>incubator cannon</label>
-		<description>A heavy cannon held within the internals of the Incubator. Fires twin pods that spread smoke on impact, each containing two fully-operational Bursters. While menacing, it has a long cooldown period.\n\nIt is said that the Chaos Launcher was based off the same mechanisms this weapon uses, though far less sophisticated.</description>
+		<description>A heavy cannon held within the internals of the Incubator. Fires twin pods that spread smoke on impact, each containing two fully-operational Bursters. While menacing, it has a long cooldown period.\n\nIt is said that the Chaos Launcher line of rockets is but a crude replica of the technology used within this cannon.</description>
 		<tickerType>Normal</tickerType>
 		<graphicData>
 			<texPath>Things/Weapons/InvisibleWeapon</texPath>

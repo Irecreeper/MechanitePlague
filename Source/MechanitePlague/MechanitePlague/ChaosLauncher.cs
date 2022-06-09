@@ -4,43 +4,55 @@ using Verse;
 
 namespace MP_MechanitePlague
 {
-    class Projectile_ExplosiveSpawnChaos : Projectile_Explosive
+    public class CompProperties_ProjectileSpawnBursters : CompProperties
     {
-        protected override void Explode()
+        public CompProperties_ProjectileSpawnBursters()
+        {
+            this.compClass = typeof(Comp_ProjectileSpawnBursters);
+        }
+
+        public int amountSpawned = 1;
+        public bool doStunPulse = false;
+        public float stunPulseRadius = 5.0f;
+    }
+
+    public class Comp_ProjectileSpawnBursters : ThingComp
+    {
+        public CompProperties_ProjectileSpawnBursters Props
+        {
+            get
+            {
+                return (CompProperties_ProjectileSpawnBursters)this.props;
+            }
+        }
+
+        public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
             //Get our position.
-            IntVec3 cell = this.Position;
+            IntVec3 cell = this.parent.Position;
 
             //Stun foes in an area.
-            List<Pawn> pawnList = Find.CurrentMap.mapPawns.AllPawnsSpawned;
-            foreach (Pawn checkPawn in pawnList)
+            if (this.Props.doStunPulse)
             {
-                if (cell.DistanceTo(checkPawn.Position) <= 5.8f)
+                List<Pawn> pawnList = Find.CurrentMap.mapPawns.AllPawnsSpawned;
+                foreach (Pawn checkPawn in pawnList)
                 {
-                    checkPawn.stances.stunner.StunFor(GenTicks.SecondsToTicks(3), this.Launcher, false, true);
+                    if (cell.DistanceTo(checkPawn.Position) <= this.Props.stunPulseRadius)
+                    {
+                        checkPawn.stances.stunner.StunFor(GenTicks.SecondsToTicks(3), this.parent, false, true);
+                    }
                 }
             }
 
-            //Generate burster horde.
-            BursterHelper.SpawnBurster(cell, this.Map, this, "MP_Mech_Burster", 0, this.launcher.Faction, DecayMode.DecayStandard, 8);
-
-            //also explode
-            base.Explode();
-        }
-    }
-
-    class Projectile_ExplosiveSpawnIncubator : Projectile_Explosive
-    {
-        protected override void Explode()
-        {
-            //Get our position.
-            IntVec3 cell = this.Position;
-
             //Generate (small) burster horde.
-            BursterHelper.SpawnBurster(cell, this.Map, this, "MP_Mech_Burster", 0, this.launcher.Faction, DecayMode.DecayRemove, 1);
+            if (this.parent is Projectile bullet)
+            {
+                BursterHelper.SpawnBurster(bullet.Position, previousMap, bullet.Launcher, "MP_Mech_Burster", 0, bullet.Launcher.Faction, DecayMode.DecayRemove, this.Props.amountSpawned);
+            }
+            
 
-            //also explode
-            base.Explode();
+            //Do... base things.
+            base.PostDestroy(mode, previousMap);
         }
     }
 }

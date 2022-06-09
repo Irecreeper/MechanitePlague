@@ -38,6 +38,10 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="CombatExtended">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\1631756268\Assemblies\CombatExtended.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,6 +63,7 @@
     <Compile Include="BursterCorpseCleaner.cs" />
     <Compile Include="BurstersOnDeath.cs" />
     <Compile Include="ChaosLauncher.cs" />
+    <Compile Include="MechanitePlagueHarmony_CE.cs" />
     <Compile Include="MechanitePlagueHediff.cs" />
     <Compile Include="MechanitePlagueHarmony_VFEM.cs" />
     <Compile Include="MechanitePlagueInflictApparel.cs" />

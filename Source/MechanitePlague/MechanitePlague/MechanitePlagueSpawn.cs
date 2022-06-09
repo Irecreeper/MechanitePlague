@@ -53,7 +53,7 @@ namespace MP_MechanitePlague {
 
                 //Spawn the pawn!
                 Pawn spawnedPawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDef.Named(thingSpawned), factionToAssign, PawnGenerationContext.NonPlayer, -1, false, true, false, false, true, false, 1f, false, true, true, false, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null));
-                PawnUtility.TrySpawnHatchedOrBornPawn(spawnedPawn, mother);
+                GenPlace.TryPlaceThing(spawnedPawn, spawnPosition, map, ThingPlaceMode.Direct);
                 if (spawnedPawn.relations == null)
                 {
                     spawnedPawn.relations = new Pawn_RelationsTracker(spawnedPawn);
