@@ -1,0 +1,9 @@
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\1.3\SpecificMod\VanillaPsycastsExpandedSpecific\Assemblies\MechanitePlagueVPE.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\1.3\SpecificMod\VanillaPsycastsExpandedSpecific\Assemblies\MechanitePlagueVPE.pdb
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlagueVPE\obj\Debug\MechanitePlagueVPE.csproj.AssemblyReference.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlagueVPE\obj\Debug\MechanitePlagueVPE.csproj.CoreCompileInputs.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlagueVPE\obj\Debug\MechanitePlagueVPE.csproj.CopyComplete
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlagueVPE\obj\Debug\MechanitePlagueVPE.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\Source\MechanitePlague\MechanitePlagueVPE\obj\Debug\MechanitePlagueVPE.pdb
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\1.4\SpecificMod\VanillaPsycastsExpandedSpecific\Assemblies\MechanitePlagueVPE.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechPlague\1.4\SpecificMod\VanillaPsycastsExpandedSpecific\Assemblies\MechanitePlagueVPE.pdb

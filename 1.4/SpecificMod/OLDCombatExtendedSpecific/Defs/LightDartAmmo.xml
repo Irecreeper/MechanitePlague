@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- A light type of dart ammunition. For use with the Darter. -->
+
+	<!-- ====== AmmoSet ====== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>MP_AmmoSet_MechDart_Light</defName>
+		<label>11mm mechanite dart</label>
+		<ammoTypes>
+			<MP_Ammo_MechDart_Light>MP_Bullet_MechDart_Light</MP_Ammo_MechDart_Light>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ====== Ammo ====== -->	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="762x51mmNATOBase">
+		<defName>MP_Ammo_MechDart_Light</defName>
+		<description>Small darts used to apply the Mechanite Plague from a distance. Used in lighter dart-based weaponry.</description>
+		<label>11mm mechanite dart cartridge</label>
+		<graphicData>
+			<texPath>ThirdParty/CP Metal Gear Solid/Rifle/NL</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.015</Mass>
+			<Bulk>0.02</Bulk>
+			<MarketValue>0.31</MarketValue>
+		</statBases>
+		<ammoClass>MP_MechDart</ammoClass>
+	</ThingDef>
+
+	<!-- ====== Projectiles ====== -->
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="Base762x51mmNATOBullet">
+		<defName>MP_Bullet_MechDart_Light</defName>
+		<label>11mm mechanite dart</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>MP_BulletInfect</damageDef>
+			<damageAmountBase>11</damageAmountBase>
+			<armorPenetrationSharp>5</armorPenetrationSharp>
+			<armorPenetrationBlunt>6</armorPenetrationBlunt>
+			<speed>36</speed>
+		</projectile>
+		<modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>1.00</addHediffChance>
+                <hediffLowerValue>0.13</hediffLowerValue>
+                <hediffUpperValue>0.15</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</ThingDef>
+
+	<!-- ====== Recipes ====== -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeMP_Ammo_MechDart_Light</defName> <!-- has to be named like this. deal with it. -->
+		<label>make 11mm mechanite dart cartridge x200</label>
+		<description>Craft 200 11mm mechanite dart cartridges.</description>
+		<jobString>Making 11mm mechanite dart cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>6</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MP_MechaniteCanister</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>MP_MechaniteCanister</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<MP_Ammo_MechDart_Light>200</MP_Ammo_MechDart_Light>
+		</products>
+		<workAmount>3600</workAmount>
+	</RecipeDef>
+</Defs>

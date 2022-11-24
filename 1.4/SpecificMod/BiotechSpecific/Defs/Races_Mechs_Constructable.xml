@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- To prevent issues with naturally spawned unit AI, we create seperate constructable versions.-->
+
+	<!-- Burster Construction -->
+	
+	<ThingDef ParentName="MP_BursterBase">
+		<defName>MP_Mech_Burster_Constructable</defName>
+		<label>pure burster</label>
+		<description>Small, swift, spider-like mechanoids. While their bites aren't very harmful, they carry in their fangs mechanites which cause the Mechanite Plague. Of course, a Burster is rarely ever encountered alone, usually appearing in terrifying packs that can rip apart any pawn caught unprepared.\n\nThis variant was designed by a Mechanitor, and will not naturally decay. Unlike a standard Burster, this one is slightly more durable.</description>
+		<race>
+			<baseHealthScale>0.75</baseHealthScale>
+		</race>
+		<comps>
+			<li Class="CompProperties_OverseerSubject">
+				<needsOverseerEffect>MechUncontrolled</needsOverseerEffect>
+				<delayUntilFeralCheck>60000</delayUntilFeralCheck>
+				<feralMtbDays>10</feralMtbDays>
+				<feralCascadeRadialDistance>25</feralCascadeRadialDistance>
+			</li>
+			<li Class="CompProperties_MechRepairable" />
+		</comps>
+		<modExtensions>
+			<li	Class="VFE.Mechanoids.MechanoidExtension">
+				<preventSpawnInAncientDangersAndClusters>True</preventSpawnInAncientDangersAndClusters>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<PawnKindDef ParentName="MP_BursterPawnKindBase">
+		<defName>MP_Mech_Burster_Constructable</defName>
+		<label>pure burster</label>
+		<race>MP_Mech_Burster_Constructable</race>
+		<controlGroupPortraitZoom>1.8</controlGroupPortraitZoom>
+	</PawnKindDef>
+	
+	<RecipeDef ParentName="LightMechanoidRecipe">
+		<defName>MP_Mech_Burster_Constructable</defName>
+		<label>gestate burster</label>
+		<description>Gestate a burster mechanoid.</description>
+		<ingredients Inherit="False">
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SubcoreBasic</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MP_MechaniteCanister</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<products>
+			<MP_Mech_Burster_Constructable>1</MP_Mech_Burster_Constructable>
+		</products>
+		<descriptionHyperlinks>
+			<ThingDef>MP_Mech_Burster_Constructable</ThingDef>
+		</descriptionHyperlinks>
+	</RecipeDef>
+	
+	<!-- Drider Construction -->
+	<ThingDef ParentName="MP_DriderBase">
+		<defName>MP_Mech_Drider_Constructable</defName>
+		<label>pure drider</label>
+		<description>Medium-sized mechanoids with the upper half of a humanoid and the lower half of a spider, Driders possess incredible speed without compromising their ability to use firearms. Making use of their speed to get in close, Driders will shred targets apart with their shotguns or their lightweight claws.\n\nThough a terror to behold on the battlefield, the Drider's design prioritizes speed over durability, making them incredibly vulnerable to focus fire.\n\nThis variant was designed by a Mechanitor. Unlike a standard Drider, this variant is slightly faster.</description>
+		<statBases>
+			<MoveSpeed>5.7</MoveSpeed>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_OverseerSubject">
+				<needsOverseerEffect>MechUncontrolled</needsOverseerEffect>
+				<delayUntilFeralCheck>60000</delayUntilFeralCheck>
+				<feralMtbDays>10</feralMtbDays>
+				<feralCascadeRadialDistance>25</feralCascadeRadialDistance>
+			</li>
+			<li Class="CompProperties_MechRepairable" />
+		</comps>
+		<modExtensions>
+			<li	Class="VFE.Mechanoids.MechanoidExtension">
+				<preventSpawnInAncientDangersAndClusters>True</preventSpawnInAncientDangersAndClusters>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<PawnKindDef ParentName="MP_DriderPawnKindBase">
+		<defName>MP_Mech_Drider_Constructable</defName>
+		<label>pure drider</label>
+		<race>MP_Mech_Drider_Constructable</race>
+		<controlGroupPortraitZoom>1</controlGroupPortraitZoom>
+	</PawnKindDef>
+	
+	<RecipeDef ParentName="MediumMechanoidRecipe">
+		<defName>MP_Mech_Drider_Constructable</defName>
+		<label>gestate drider</label>
+		<description>Gestate a drider mechanoid.</description>
+		<ingredients Inherit="False">
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SubcoreRegular</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MP_MechaniteCanister</li>
+					</thingDefs>
+				</filter>
+				<count>4</count>
+			</li>
+		</ingredients>
+		<products>
+			<MP_Mech_Drider_Constructable>1</MP_Mech_Drider_Constructable>
+		</products>
+		<descriptionHyperlinks>
+			<ThingDef>MP_Mech_Drider_Constructable</ThingDef>
+		</descriptionHyperlinks>
+		<researchPrerequisite>HighMechtech</researchPrerequisite>
+	</RecipeDef>
+	
+	<!-- Incubator Construction -->
+	<ThingDef ParentName="MP_IncubatorBase">
+		<defName>MP_Mech_Incubator_Constructable</defName>
+		<label>pure incubator</label>
+		<description>A mobile factory, the Incubator fires Bursters directly into the enemy lines. It is incredibly durable, but attacks at a snail's pace. In longer engagements, the Incubator can spawn dozens of Bursters on its own.\n\nThe Incubator is named for the cryptosleep casket mounted upon its back. A single, poor soul is contained within, their body used as a breeding ground for dozens of Bursters. Upon death, the victim in the casket will expire as well, their body unleashing a final wave of Bursters. Be prepared for their deathrattle- it could catch a melee trooper offguard and kill them.\n\nThis variant was designed by a Mechanitor. Unlike a standard Incubator, this variant is slightly more armored.</description>
+		<statBases>
+			<ArmorRating_Blunt>0.27</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.70</ArmorRating_Sharp>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_OverseerSubject">
+				<needsOverseerEffect>MechUncontrolled</needsOverseerEffect>
+				<delayUntilFeralCheck>60000</delayUntilFeralCheck>
+				<feralMtbDays>10</feralMtbDays>
+				<feralCascadeRadialDistance>25</feralCascadeRadialDistance>
+			</li>
+			<li Class="CompProperties_MechRepairable" />
+		</comps>
+		<modExtensions>
+			<li	Class="VFE.Mechanoids.MechanoidExtension">
+				<preventSpawnInAncientDangersAndClusters>True</preventSpawnInAncientDangersAndClusters>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<PawnKindDef ParentName="MP_IncubatorPawnKindBase">
+		<defName>MP_Mech_Incubator_Constructable</defName>
+		<label>pure incubator</label>
+		<race>MP_Mech_Incubator_Constructable</race>
+		<controlGroupPortraitZoom>0.65</controlGroupPortraitZoom>
+	</PawnKindDef>
+	
+	<RecipeDef ParentName="HeavyMechanoidRecipe">
+		<defName>MP_Mech_Incubator_Constructable</defName>
+		<label>gestate incubator</label>
+		<description>Gestate an incubator mechanoid.</description>
+		<ingredients Inherit="False">
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>270</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Plasteel</li>
+					</thingDefs>
+				</filter>
+				<count>270</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SubcoreHigh</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MP_MechaniteCanister</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<products>
+			<MP_Mech_Incubator_Constructable>1</MP_Mech_Incubator_Constructable>
+		</products>
+		<descriptionHyperlinks>
+			<ThingDef>MP_Mech_Incubator_Constructable</ThingDef>
+		</descriptionHyperlinks>
+		<researchPrerequisite>UltraMechtech</researchPrerequisite>
+		<gestationCycles>8</gestationCycles>
+	</RecipeDef>
+</Defs>

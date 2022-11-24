@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="BaseMechanoid" Name="MP_BaseMechanoidPlague" Abstract="True">
+		<race>
+			<intelligence>ToolUser</intelligence>
+			<thinkTreeMain>Mechanoid</thinkTreeMain>
+			<lifeStageAges>
+				<li>
+					<def>MechanoidFullyFormed</def>
+					<minAge>0</minAge>
+					<soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+					<soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+					<soundCall>Pawn_Mech_Scyther_Call</soundCall>
+				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>MechanoidFullyFormed</def>
+					<minAge>100</minAge>
+					<soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
+					<soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
+					<soundCall>Pawn_Mech_Scyther_Call</soundCall>
+				</li>
+			</lifeStageAges>
+			<soundCallIntervalRange>1000~2000</soundCallIntervalRange>
+		</race>
+		<comps Inherit="False">
+			<li Class="CompProperties_CanBeDormant"/>
+			<li Class="CompProperties_WakeUpDormant">
+			  <wakeUpOnDamage>true</wakeUpOnDamage>
+			  <wakeUpCheckRadius>30</wakeUpCheckRadius>
+			  <wakeUpSound>MechanoidsWakeUp</wakeUpSound>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

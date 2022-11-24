@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<!-- 
+	Adds the PLAGUELICH specialization.
+
+	The Plaguelich has two primary focuses:
+	- summoning
+	- debuffs
+	In terms of raw damage or utility, it lacks much.
+	However, the summons and debuffs can turn the tide of any battle!
+
+	o Mechskip          (T1)
+	o Vulnerability Hex (T1) (VPE Exclusive)
+	o Manifest Scyther  (T2) (VPE Exclusive)
+	o Incubator Spines  (T2) (VPE Exclusive)
+	o Mechanite Swarm   (T3) (VPE Exclusive)
+	o Mass Mechskip     (T4)
+	o Festering Blast   (T4) 
+	o Hardware Upgrade  (T5) (VPE Exclusive)
+	o Disintegration    (T5) (VPE Exclusive)
+	o Lichdom           (T5) (VPE Exclusive)
+
+	-->
+
+	<!-- Path -->
+	<VanillaPsycastsExpanded.PsycasterPathDef>
+		<defName>MP_VPE_Plaguelich</defName>
+		<label>plaguelich</label>
+		<description>Plaguelich psycasts focus on summoning Mechanoids to slaughter your enemies, while also providing tools to buff allies and debuff foes with the Mechanite Plague.</description>
+		<background>UI/Backgrounds/PlaguelichPath</background>
+		<altBackground>UI/AlternativeBackgrounds/PlaguelichPathCard</altBackground>
+		<tab>Psycasts</tab>
+		<tooltip>Plagueliches are psycasters who wish to transcend their fleshy form, becoming a mechanoid themselves. To this end, they use the power of the Mechanite Plague, commanding hordes of plagued mechanites to "raise" the dead or give their enemies a slow, agonizing death.</tooltip>
+	</VanillaPsycastsExpanded.PsycasterPathDef>
+	
+	<!-- Abilities -->
+	
+	<!-- Mechskip (T1) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_Mechskip</defName>
+		<label>mechskip</label>
+		<description>A morally dubious psycast that allows one to teleport a host of plague-inducing Mechanites into a corpse. In an instant, a Burster will spring forth from the body to assault the caster's enemies. Works with any corpses from creatures that'd normally spawn a Burster, so what this works on is based on the mod's settings.\n\nBursters spawned through this method will disintegrate upon death, leaving no corpse behind.</description>
+		<iconPath>Abilities/Icons/MechskipSingle</iconPath>
+		<abilityClass>MP_MechanitePlagueVPE.Ability_MechskipVPE</abilityClass>
+		<castTime>15</castTime>
+		<fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+		<range>24.9</range>
+		<targetMode>Pawn</targetMode> <!-- location: gives locations. pawn: gives pawns. get it? -->
+		<targetingParameters>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>False</canTargetAnimals>
+			<canTargetPawns>False</canTargetPawns>
+			<canTargetHumans>False</canTargetHumans>
+			<canTargetItems>true</canTargetItems>
+			<thingCategory>Item</thingCategory>
+			<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+		</targetingParameters>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>1</level>
+				<order>1</order>
+				<psyfocusCost>0.02</psyfocusCost>
+				<entropyGain>12</entropyGain>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+				<fleckDefs>
+					<li>PsycastSkipInnerExit</li>
+					<li>PsycastSkipOuterRingExit</li>
+				</fleckDefs>
+				<sound>Psycast_Skip_Exit</sound>
+				<preCastTicks>5</preCastTicks>
+			</li>
+			<li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+				<clamorType>Ability</clamorType>
+				<clamorRadius>10</clamorRadius>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<!-- Vulnerability Hex (T1) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_VulnerabilityHex</defName>
+		<label>vulnerability hex</label>
+		<description>A long-ranged curse that destabilizes the target's body with a horde of hostile mechanites. When a target with the hex is wounded, the mechanites will rush out of the afflicted's wounds, worsening the injury. The duration scales with the caster's psychic sensitivity. Considered a hostile action.</description>
+		<iconPath>Abilities/Icons/VulnerabilityHex</iconPath>
+		<abilityClass>VFECore.Abilities.Ability_Blank</abilityClass>
+		<castTime>15</castTime>
+		<durationTime>2400</durationTime>
+		<fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+		<goodwillImpact>-20</goodwillImpact>
+		<range>38.7</range>
+		<targetMode>Pawn</targetMode>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>1</level>
+				<order>2</order>
+				<psyfocusCost>0.01</psyfocusCost>
+				<entropyGain>10</entropyGain>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Hediff">
+				<hediff>MP_VPE_VulnerabilityHexStatus</hediff>
+				<durationMultiplier>PsychicSensitivity</durationMultiplier>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<!-- Manifest Scyther (T2) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_ManifestScyther</defName>
+		<label>manifest scyther</label>
+		<description>A psycast that assembles a cluster of mechanites together, forming an uncontrollable, makeshift Scyther to fight for the caster. It lasts a short time, and takes quite a while to create. Proper planning is required to summon the Scyther before the caster is overwhelmed.\n\nScythers spawned through this method will disintegrate upon death, leaving no corpse behind.</description>
+		<iconPath>Abilities/Icons/ManifestScyther</iconPath>
+		<abilityClass>MP_MechanitePlagueVPE.Ability_SpawnScytherDirectVPE</abilityClass>
+		<castTime>480</castTime>
+		<fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+		<range>3.2</range>
+		<targetMode>Location</targetMode>
+		<targetingParameters>
+			<canTargetLocations>True</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>False</canTargetAnimals>
+			<canTargetPawns>False</canTargetPawns>
+			<canTargetHumans>False</canTargetHumans>
+			<canTargetItems>False</canTargetItems>
+		</targetingParameters>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>2</level>
+				<order>1</order>
+				<psyfocusCost>0.20</psyfocusCost>
+				<entropyGain>35</entropyGain>
+				<prerequisites>
+					<li>MP_VPE_Mechskip</li>
+					<li>MP_VPE_VulnerabilityHex</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+				<fleckDefs>
+					<li>PsycastSkipInnerExit</li>
+					<li>PsycastSkipOuterRingExit</li>
+				</fleckDefs>
+				<sound>Psycast_Skip_Exit</sound>
+				<preCastTicks>5</preCastTicks>
+			</li>
+			<li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+				<clamorType>Ability</clamorType>
+				<clamorRadius>10</clamorRadius>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<!-- Incubator Spines (T2) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_IncubatorSpine</defName>
+		<label>incubator spines</label>
+		<description>A volley of five metal spines is formed from mechanites and fired from the caster's palm in quick succession. These spikes individually deal low damage, but their quantity and infectivity more than makes up for it.</description>
+		<iconPath>Abilities/Icons/IncubatorSpines</iconPath>
+		<abilityClass>MP_MechanitePlagueVPE.Ability_MultishotVPE</abilityClass>
+		<castTime>30</castTime>
+		<cooldownTime>180</cooldownTime>
+		<range>17.8</range>
+		<power>6</power>
+		<powerStatFactors>
+			<PsychicSensitivity>1</PsychicSensitivity>
+		</powerStatFactors>
+		<needsTicking>true</needsTicking>
+		<castSound>VPE_Bolt_Cast</castSound>
+		<targetMode>Pawn</targetMode>
+		<targetingParameters>
+			<canTargetItems>true</canTargetItems>
+		</targetingParameters>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>2</level>
+				<order>2</order>
+				<psyfocusCost>0.02</psyfocusCost>
+				<entropyGain>18</entropyGain>
+				<prerequisites>
+					<li>MP_VPE_Mechskip</li>
+					<li>MP_VPE_VulnerabilityHex</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Projectile">
+				<projectile>MP_VPE_IncubatorSpineBullet</projectile>
+			</li>
+		</modExtensions>
+    </VFECore.Abilities.AbilityDef>
+	
+	<!-- Mechanite Swarm (T3) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_MechaniteSwarm</defName>
+		<label>mechanite swarm</label>
+		<description>Skip a swarm of ravenous plague-inflicting mechanites into an area. These mechanites will rapidly tear at the skin of organic entities in the area, infecting them with the Mechanite Plague before they lose power.</description>
+		<iconPath>Abilities/Icons/MechaniteSwarm</iconPath>
+		<abilityClass>MP_MechanitePlagueVPE.Ability_PlagueSwarmCloudVPE</abilityClass>
+		<needsTicking>true</needsTicking>
+		<range>26.7</range>
+		<radius>4.8</radius>
+		<castTime>60</castTime>
+		<targetMode>Location</targetMode>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>3</level>
+				<order>1</order>
+				<psyfocusCost>0.03</psyfocusCost>
+				<entropyGain>32</entropyGain>
+				<prerequisites>
+					<li>MP_VPE_ManifestScyther</li>
+					<li>MP_VPE_IncubatorSpine</li>
+				</prerequisites>
+			</li>
+			<li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+				<clamorType>Ability</clamorType>
+				<clamorRadius>15</clamorRadius>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+				<effecterDef>Skip_Exit</effecterDef>
+				<maintainForTicks>60</maintainForTicks>
+				<scale>3</scale>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+				<fleckDefs>
+					<li>PsycastSkipInnerExit</li>
+					<li>PsycastSkipOuterRingExit</li>
+				</fleckDefs>
+				<sound>Psycast_Skip_Exit</sound>
+				<preCastTicks>6</preCastTicks>
+				<scale>3</scale>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<!-- Mass Mechskip (T4) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_MechskipMass</defName>
+		<label>mass mechskip</label>
+		<description>A morally dubious psycast that allows one to teleport a host of plague-inducing Mechanites into a whole field of corpses. In an instant, Bursters will spring forth from each body to assault the caster's enemies. Works with any corpses from creatures that'd normally spawn a Burster, so what this works on is based on the mod's settings.\n\nBursters spawned through this method will disintegrate upon death, leaving no corpse behind. Consider keeping a fridge of corpses around?</description>
+		<iconPath>Abilities/Icons/MechskipMass</iconPath>
+		<abilityClass>MP_MechanitePlagueVPE.Ability_MechskipMassVPE</abilityClass>
+		<castTime>120</castTime>
+		<fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+		<range>24.9</range>
+		<radius>4.8</radius>
+		<targetMode>Location</targetMode>
+		<hasAoE>true</hasAoE>
+		<targetingParametersForAoE>
+			<canTargetLocations>True</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>False</canTargetAnimals>
+			<canTargetPawns>False</canTargetPawns>
+			<canTargetHumans>False</canTargetHumans>
+			<canTargetItems>True</canTargetItems>
+			<thingCategory>Item</thingCategory>
+		</targetingParametersForAoE>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>4</level>
+				<order>1</order>
+				<psyfocusCost>0.08</psyfocusCost>
+				<entropyGain>60</entropyGain>
+				<prerequisites>
+					<li>MP_VPE_MechaniteSwarm</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_FleckOnTarget">
+				<fleckDefs>
+					<li>PsycastSkipInnerExit</li>
+					<li>PsycastSkipOuterRingExit</li>
+				</fleckDefs>
+				<sound>Psycast_Skip_Exit</sound>
+				<preCastTicks>5</preCastTicks>
+			</li>
+			<li Class="VanillaPsycastsExpanded.Skipmaster.AbilityExtension_Clamor">
+				<clamorType>Ability</clamorType>
+				<clamorRadius>10</clamorRadius>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<!-- Festering Blast (T4) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_FesteringBlast</defName>
+		<label>festering blast</label>
+		<description>Imbues a non-dessicated, organic corpse with an immense amount of mechanites. This causes the corpse to explode into a burst of plague-inflicting shrapnel that deals moderate damage. The corpse is destroyed in the process. Works with any corpses from creatures that'd normally spawn a Burster, so what this works on is based on the mod's settings.</description>
+		<iconPath>Abilities/Icons/FesteringBlast</iconPath>
+		<abilityClass>MP_MechanitePlagueVPE.Ability_CorpseExplosionVPE</abilityClass>
+		<castTime>45</castTime>
+		<cooldownTime>300</cooldownTime>
+		<castSound>VPE_Explosion</castSound>
+		<fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+		<range>26.7</range>
+		<radius>4.2</radius>
+		<targetMode>Pawn</targetMode>
+		<targetingParameters>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetAnimals>False</canTargetAnimals>
+			<canTargetPawns>False</canTargetPawns>
+			<canTargetHumans>False</canTargetHumans>
+			<canTargetItems>true</canTargetItems>
+			<thingCategory>Item</thingCategory>
+			<mapObjectTargetsMustBeAutoAttackable>False</mapObjectTargetsMustBeAutoAttackable>
+		</targetingParameters>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>4</level>
+				<order>2</order>
+				<psyfocusCost>0.02</psyfocusCost>
+				<entropyGain>30</entropyGain>
+				<prerequisites>
+					<li>MP_VPE_MechaniteSwarm</li>
+				</prerequisites>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<!-- Hardware Upgrade (T5) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_HardwareUpgrade</defName>
+		<label>hardware upgrade</label>
+		<description>Transforms an allied burster into an allied, highly lethal Drider. This will completely restore the target's health as they transform. Somewhat heat and focus intensive, but can be cast relatively quickly.\n\nIf cast on a constructed Pure Burster from Biotech, upgrades it into a Pure Drider at the cost of all the mechanoid's energy, and all the caster's psyfocus.\n\nAs a note, autocast is broken on this spell, and will automatically cast on foes with no actual effect. I'm not sure if there's anything I can do about this for the time being, sorry!</description>
+		<iconPath>Abilities/Icons/Upgrade</iconPath>
+		<abilityClass>MP_MechanitePlagueVPE.Ability_UpgradeVPE</abilityClass>
+		<needsTicking>true</needsTicking>
+		<castTime>60</castTime>
+		<fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+		<range>24.9</range>
+		<targetingParameters>
+			<canTargetLocations>False</canTargetLocations>
+			<canTargetSelf>False</canTargetSelf>
+			<canTargetPawns>True</canTargetPawns>
+			<canTargetMechs>True</canTargetMechs>
+			<!-- <mustBeSameFaction>true</mustBeSameFaction> -->
+		</targetingParameters>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>5</level>
+				<order>1</order>
+				<psyfocusCost>0.05</psyfocusCost>
+				<entropyGain>35</entropyGain>
+				<prerequisites>
+					<li>MP_VPE_MechskipMass</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_EffecterOnTarget">
+				<effecterDef>Skip_Exit</effecterDef>
+				<maintainForTicks>60</maintainForTicks>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<!-- Mechanical Transcendence (T5) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_Lichdom</defName>
+		<label>mechalich ascension</label>
+		<description>After a long period of meditation, channels an immense amount of mechanites into the caster to transform them into a Mechalich forever. Mechaliches have improved psychic abilities, no need to eat or sleep, and several other assorted bonuses. They also obtain a powerful ripping melee attack. The spell will only succeed if there are at least 100 Mechanite Canisters on the map to use as fuel for the spell.\n\nIf the caster is already a Mechalich, casting this spell will grant the lich a boon that will revive them on death. This costs 50 Mechanite Canisters, and lasts for a quadrum.</description>
+		<iconPath>Abilities/Icons/Mechalichdom</iconPath>
+		<abilityClass>MP_MechanitePlagueVPE.Ability_LichdomVPE</abilityClass>
+		<castTime>12000</castTime>
+		<fleckOnTarget>PsycastPsychicEffect</fleckOnTarget>
+		<targetMode>Self</targetMode>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>5</level>
+				<order>2</order>
+				<psyfocusCost>0.80</psyfocusCost>
+				<entropyGain>0</entropyGain>
+				<prerequisites>
+					<li>MP_VPE_HardwareUpgrade</li>
+					<li>MP_VPE_Disintegrate</li>
+				</prerequisites>
+			</li>
+		</modExtensions>
+	</VFECore.Abilities.AbilityDef>
+	
+	<!-- Disintegrate (T5) -->
+	<VFECore.Abilities.AbilityDef ParentName="VPE_PsycastBase">
+		<defName>MP_VPE_Disintegrate</defName>
+		<label>disintegrate</label>
+		<description>Fires a concentrated clump of mechanites at a distant target. Upon impact, these mechanites will infest the target's body and rip them apart from the inside, dealing incredible damage over a short timeframe. Nearly guaranteed to kill a standard humanoid target, and can absolutely rip apart Centipedes and other heavy mechanoids.</description>
+		<iconPath>Abilities/Icons/Disintegrate</iconPath>
+		<abilityClass>VFECore.Abilities.Ability_ShootProjectile</abilityClass>
+		<castTime>120</castTime>
+		<cooldownTime>600</cooldownTime>
+		<range>38.7</range>
+		<power>30</power>
+		<powerStatFactors>
+			<PsychicSensitivity>1</PsychicSensitivity>
+		</powerStatFactors>
+		<needsTicking>true</needsTicking>
+		<castSound>VPE_Bolt_Cast</castSound>
+		<targetMode>Pawn</targetMode>
+		<targetingParameters>
+			<canTargetItems>true</canTargetItems>
+		</targetingParameters>
+		<modExtensions>
+			<li Class="VanillaPsycastsExpanded.AbilityExtension_Psycast">
+				<path>MP_VPE_Plaguelich</path>
+				<level>5</level>
+				<order>3</order>
+				<psyfocusCost>0.03</psyfocusCost>
+				<entropyGain>45</entropyGain>
+				<prerequisites>
+					<li>MP_VPE_FesteringBlast</li>
+				</prerequisites>
+			</li>
+			<li Class="VFECore.Abilities.AbilityExtension_Projectile">
+				<projectile>MP_VPE_DisintegrateBullet</projectile>
+			</li>
+		</modExtensions>
+    </VFECore.Abilities.AbilityDef>
+</Defs>

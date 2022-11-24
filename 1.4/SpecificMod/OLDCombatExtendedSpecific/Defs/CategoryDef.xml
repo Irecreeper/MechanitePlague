@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Defines an ammunition type. -->
+	<CombatExtended.AmmoCategoryDef>
+		<defName>MP_MechDart</defName>
+		<label>mechanite dart</label>
+		<labelShort>M-Dart</labelShort>
+		<description>A dart designed to apply the Mechanite Plague. While dart weapons are normally non-lethal, the lack of concern for target preservation gives these darts the lethality of the average FMJ round.</description>
+	</CombatExtended.AmmoCategoryDef>
+	
+	<CombatExtended.AmmoCategoryDef>
+		<defName>MP_MechShell</defName>
+		<label>plague</label>
+		<description>A mortar shell designed to apply the Mechanite Plague. Combines high explosive power with the power of the plague, resulting in a lethal combination.</description>
+	</CombatExtended.AmmoCategoryDef>
+</Defs>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biotech</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!-- Bursters -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName="ResurrectLightMech"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>Corpse_MP_Mech_Burster_Constructable</li>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="MechGestator"]/recipes</xpath>
+					<value>
+						<li>MP_Mech_Burster_Constructable</li>
+					</value>
+				</li>
+				
+				<!-- Driders -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName="ResurrectMediumMech"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>Corpse_MP_Mech_Drider_Constructable</li>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="LargeMechGestator"]/recipes</xpath>
+					<value>
+						<li>MP_Mech_Drider_Constructable</li>
+					</value>
+				</li>
+				
+				<!-- Incubators -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName="ResurrectHeavyMech"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>Corpse_MP_Mech_Incubator_Constructable</li>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="LargeMechGestator"]/recipes</xpath>
+					<value>
+						<li>MP_Mech_Incubator_Constructable</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    
+    <!-- ranged infectious damage -->
+    
+    <DamageDef>
+        <defName>MP_BulletInfect</defName>
+        <label>infectious bullet</label>
+        <workerClass>MP_MechanitePlague.ModExtension_DamageWorkerPlagueRanged</workerClass>
+        <externalViolence>true</externalViolence>
+        <deathMessage>{0} has been shot to death.</deathMessage>
+        <hediff>Gunshot</hediff>
+        <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+        <impactSoundType>Bullet</impactSoundType>
+        <armorCategory>Sharp</armorCategory>
+        <overkillPctToDestroyPart>0~0.7</overkillPctToDestroyPart>
+        <isRanged>true</isRanged>
+        <makesAnimalsFlee>true</makesAnimalsFlee>
+    </DamageDef>
+    
+    <DamageDef ParentName="Arrow">
+        <defName>MP_ArrowInfect</defName>
+        <workerClass>MP_MechanitePlague.ModExtension_DamageWorkerPlagueRanged</workerClass>
+    </DamageDef>
+    
+    <!-- melee infectious damage -->
+	<!-- bite (as bites != weapons, their damage is done a bit differently) -->
+	<ToolCapacityDef>
+		<defName>MP_BiteInfect</defName>
+		<label>infectious bite</label>
+	</ToolCapacityDef>
+
+    <ManeuverDef>
+		<defName>MP_BiteInfect</defName>
+		<requiredCapacity>MP_BiteInfect</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>MP_BiteInfect</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+    <DamageDef ParentName="Bite">
+        <defName>MP_BiteInfect</defName>
+		<label>infectious bite</label>
+        <workerClass>MP_MechanitePlague.ModExtension_DamageWorkerPlagueBite</workerClass>
+        <modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>0.70</addHediffChance>
+                <hediffLowerValue>0.04</hediffLowerValue>
+                <hediffUpperValue>0.06</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</DamageDef>
+	
+	
+	<!-- cut -->
+	<ToolCapacityDef>
+		<defName>MP_CutInfect</defName>
+		<label>infectious cut</label>
+	</ToolCapacityDef>
+
+    <ManeuverDef>
+		<defName>MP_CutInfect</defName>
+		<requiredCapacity>MP_CutInfect</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>MP_CutInfect</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+
+    <DamageDef ParentName="CutBase">
+        <defName>MP_CutInfect</defName>
+		<label>infectious cut</label>
+        <workerClass>MP_MechanitePlague.ModExtension_DamageWorkerPlagueCut</workerClass>
+	</DamageDef>
+	
+	
+	<!-- stab -->
+	<ToolCapacityDef>
+		<defName>MP_StabInfect</defName>
+		<label>infectious stab</label>
+	</ToolCapacityDef>
+
+    <ManeuverDef>
+		<defName>MP_StabInfect</defName>
+		<requiredCapacity>MP_StabInfect</requiredCapacity>
+		<verb>
+			<verbClass>Verb_MeleeAttackDamage</verbClass>
+			<meleeDamageDef>MP_StabInfect</meleeDamageDef>
+		</verb>
+		<logEntryDef>MeleeAttack</logEntryDef>
+		<combatLogRulesHit>Maneuver_Stab_MeleeHit</combatLogRulesHit>
+		<combatLogRulesDeflect>Maneuver_Stab_MeleeDeflect</combatLogRulesDeflect>
+		<combatLogRulesMiss>Maneuver_Stab_MeleeMiss</combatLogRulesMiss>
+		<combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
+	</ManeuverDef>
+	
+	<DamageDef>
+		<defName>MP_StabInfect</defName>
+		<label>infectious stab</label>
+		<workerClass>MP_MechanitePlague.ModExtension_DamageWorkerPlagueStab</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} has been stabbed to death.</deathMessage>
+		<hediff>Stab</hediff>
+		<hediffSolid>Crack</hediffSolid>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<stabChanceOfForcedInternal>0.6</stabChanceOfForcedInternal>
+		<overkillPctToDestroyPart>0.4~1.0</overkillPctToDestroyPart>
+	</DamageDef>
+	
+    
+	<!-- blast-based infectious damage -->
+    <!-- Seperate type for mortars, as they always seem to spread damage out over parts -->
+    
+    <DamageDef ParentName="Bomb">
+        <defName>MP_BlastInfectMortar</defName>
+		<label>plague shrapnel blast</label>
+        <defaultDamage>20</defaultDamage>
+        <workerClass>MP_MechanitePlague.ModExtension_DamageWorkerPlagueBasic</workerClass>
+        <modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>1.00</addHediffChance>
+                <hediffLowerValue>0.10</hediffLowerValue>
+                <hediffUpperValue>0.15</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</DamageDef>
+	
+	<DamageDef ParentName="Bomb">
+        <defName>MP_BlastInfect</defName>
+		<label>plague shrapnel blast</label>
+        <workerClass>MP_MechanitePlague.ModExtension_DamageWorkerPlagueBasic</workerClass>
+        <modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>1.00</addHediffChance>
+                <hediffLowerValue>0.25</hediffLowerValue>
+                <hediffUpperValue>0.40</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</DamageDef>
+</Defs>

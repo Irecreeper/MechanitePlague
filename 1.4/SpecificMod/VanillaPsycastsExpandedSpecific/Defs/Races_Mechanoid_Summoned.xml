@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="BaseMechanoidWalker">
+		<defName>MP_VPE_Mech_Scyther_Summoned</defName>
+		<label>summoned scyther</label>
+		<description>Fast, spindly, human-sized combat mechanoids specializing in rapid approach and close-range combat. Their bodies are covered in points and blades, but they mostly use their two arm blades to lop off limbs or gut their victims alive.\n\nThis particular variant was summoned by a Plaguelich. It won't be around for too long.</description>
+		<tools>
+			<li>
+				<label>left blade</label>
+				<capacities>
+					<li>Cut</li>
+					<li>Stab</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftBlade</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>right blade</label>
+				<capacities>
+					<li>Cut</li>
+					<li>Stab</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightBlade</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<race>
+			<body>Scyther</body>
+			<baseHealthScale>1.32</baseHealthScale>
+			<soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+		</race>
+		<statBases>
+			<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">2</BandwidthCost>
+		</statBases>
+		
+		<!-- these are the only real modifications to the scyther -->
+		<comps Inherit="False">
+			<li Class="CompProperties_CanBeDormant"/>
+			<li Class="CompProperties_WakeUpDormant">
+			  <wakeUpOnDamage>true</wakeUpOnDamage>
+			  <wakeUpCheckRadius>30</wakeUpCheckRadius>
+			  <wakeUpSound>MechanoidsWakeUp</wakeUpSound>
+			</li>
+		</comps>
+		<modExtensions>
+			<li	Class="VFE.Mechanoids.MechanoidExtension">
+				<preventSpawnInAncientDangersAndClusters>True</preventSpawnInAncientDangersAndClusters>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<PawnKindDef ParentName="BaseMechanoidKind">
+		<defName>MP_VPE_Mech_Scyther_Summoned</defName>
+		<label>summoned scyther</label>
+		<race>MP_VPE_Mech_Scyther_Summoned</race>
+		<combatPower>150</combatPower>
+		<lifeStages>
+			<li MayRequire="Ludeon.Rimworld.Biotech">
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Mechanoid/ScytherClean</texPath>
+					<maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Scyther</maskPath>
+					<shaderType>CutoutWithOverlay</shaderType>
+					<graphicClass>Graphic_Multi</graphicClass>
+					<drawSize>1.5</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.8, 0.4)</volume>
+					</shadowData>
+				</bodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+				<texPath>Things/Pawn/Mechanoid/Scyther</texPath>
+				<maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/Mech_Scyther</maskPath>
+				<shaderType>CutoutWithOverlay</shaderType>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>1.5</drawSize>
+				<shadowData>
+					<volume>(0.4, 0.8, 0.4)</volume>
+				</shadowData>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+		<weaponMoney>0~0</weaponMoney>
+		<defendPointRadius>0</defendPointRadius>
+		<weaponTags>
+		</weaponTags>
+		<techHediffsChance>1</techHediffsChance>
+		<techHediffsMoney>9999~9999</techHediffsMoney>
+	</PawnKindDef>
+</Defs>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- A light type of dart ammunition. For use with the Darter. -->
+
+	<!-- ====== AmmoSet ====== -->
+	<CombatExtended.AmmoSetDef>
+		<defName>MP_AmmoSet_MechDart_Neolithic</defName>
+		<label>neolithic mechanite dart</label>
+		<ammoTypes>
+			<MP_Ammo_MechDart_Neolithic>MP_Bullet_MechDart_Neolithic</MP_Ammo_MechDart_Neolithic>
+		</ammoTypes>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ====== Ammo ====== -->	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="AmmoArrowBase">
+		<defName>MP_Ammo_MechDart_Neolithic</defName>
+		<description>Neolithic darts used to apply the Mechanite Plague from a distance. Due to the lack of a sophisticated injection mechanism, these darts may fail to apply the plague.</description>
+		<label>neolithic mechanite dart</label>
+		<graphicData>
+			<texPath>Things/Ammo/Neolithic/Dart</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.01</Mass>
+			<Bulk>0.012</Bulk>
+			<Flammability>1</Flammability>
+			<MarketValue>0.524</MarketValue>
+		</statBases>
+		<ammoClass>MP_MechDart</ammoClass>
+	</ThingDef>
+
+	<!-- ====== Projectiles ====== -->
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="BaseArrowProjectile">
+		<defName>MP_Bullet_MechDart_Neolithic</defName>
+		<label>Neolithic mechanite dart</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>MP_ArrowInfect</damageDef>
+			<damageAmountBase>5</damageAmountBase>
+			<armorPenetrationSharp>0.5</armorPenetrationSharp>
+			<armorPenetrationBlunt>1.72</armorPenetrationBlunt>
+			<speed>24</speed>
+		</projectile>
+		<modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>0.80</addHediffChance>
+                <hediffLowerValue>0.14</hediffLowerValue>
+                <hediffUpperValue>0.17</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</ThingDef>
+
+	<!-- ====== Recipes ====== -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeMP_Ammo_MechDart_Neolithic</defName> <!-- has to be named like this. deal with it. -->
+		<label>make neolithic mechanite dart x25</label>
+		<description>Craft 25 neolithic mechanite darts.</description>
+		<jobString>Making 25 neolithic mechanite darts.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MP_MechaniteCanister</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>MP_MechaniteCanister</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<MP_Ammo_MechDart_Neolithic>25</MP_Ammo_MechDart_Neolithic>
+		</products>
+		<workAmount>800</workAmount>
+	</RecipeDef>
+</Defs>

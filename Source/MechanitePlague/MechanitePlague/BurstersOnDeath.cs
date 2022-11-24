@@ -12,7 +12,7 @@ namespace MP_MechanitePlague
             IntVec3 position = corpse.Position;
             Map map = corpse.Map;
 
-            BursterHelper.SpawnBurster(position, map, corpse.InnerPawn, "MP_Mech_Burster", 0, corpse.InnerPawn.Faction, DecayMode.DecayNone, 4);
+            BursterHelper.SpawnBurster(position, map, corpse.InnerPawn, "MP_Mech_Burster", 0, corpse.InnerPawn.Faction, DecayMode.DecayStandard, 4);
         }
     }
 }

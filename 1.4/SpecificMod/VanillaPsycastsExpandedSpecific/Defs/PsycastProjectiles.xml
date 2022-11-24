@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThingDef ParentName="BaseBullet">
+		<defName>MP_VPE_IncubatorSpineBullet</defName>
+		<label>incubator spine</label>
+		<description>A spike made of mechanites that infects the target with the Mechanite Plague.</description>
+		<thingClass>VFECore.Abilities.AbilityProjectile</thingClass>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>VisEffects</altitudeLayer>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<texPath>Abilities/Projectiles/IncubatorSpineProjectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>MP_IncubatorSpineStab</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<speed>70</speed>
+		</projectile>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.CompProperties_FleckEmitter"> <!-- TODO: customize -->
+				<fleck>DustPuff</fleck>
+				<emissionInterval>1</emissionInterval>
+				<scale>1.1</scale>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseBullet">
+		<defName>MP_VPE_DisintegrateBullet</defName>
+		<label>disintegration bolt</label>
+		<description>An energy bolt made of mechanites that absolutely devastates targets.</description>
+		<thingClass>VFECore.Abilities.AbilityProjectile</thingClass>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>VisEffects</altitudeLayer>
+		<drawOffscreen>true</drawOffscreen>
+		<graphicData>
+			<texPath>Abilities/Projectiles/DisintegrateProjectile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>MP_DisintegrateBlast</damageDef>
+			<damageAmountBase>30</damageAmountBase>
+			<speed>90</speed>
+		</projectile>
+		<comps>
+			<li Class="VanillaPsycastsExpanded.CompProperties_FleckEmitter"> <!-- TODO: customize -->
+				<fleck>DustPuff</fleck>
+				<emissionInterval>1</emissionInterval>
+				<scale>2</scale>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<!-- special damage hediffs because otherwise, pain -->
+	
+	<DamageDef>
+		<defName>MP_IncubatorSpineStab</defName>
+		<label>infectious stab</label>
+		<workerClass>MP_MechanitePlague.ModExtension_DamageWorkerPlagueBasic</workerClass> <!-- TODO: custom stab worker? -->
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} has been stabbed to death.</deathMessage>
+		<hediff>Stab</hediff>
+		<hediffSolid>Crack</hediffSolid>
+		<impactSoundType>Slice</impactSoundType>
+		<armorCategory>Sharp</armorCategory>
+		<stabChanceOfForcedInternal>0.6</stabChanceOfForcedInternal>
+		<overkillPctToDestroyPart>0.4~1.0</overkillPctToDestroyPart>
+		<modExtensions>
+            <li Class="MP_MechanitePlague.ModExtension_MechPlagueOdds">
+                <addHediffChance>0.80</addHediffChance>
+                <hediffLowerValue>0.07</hediffLowerValue>
+                <hediffUpperValue>0.09</hediffUpperValue>
+            </li>
+        </modExtensions>
+	</DamageDef>
+	
+	<DamageDef ParentName="Bomb">
+		<defName>MP_DisintegrateBlast</defName>
+		<label>eradication blast</label>
+		<workerClass>MP_MechanitePlagueVPE.ModExtension_DamageWorkerDisintegrateBlast</workerClass>
+	</DamageDef>
+</Defs>

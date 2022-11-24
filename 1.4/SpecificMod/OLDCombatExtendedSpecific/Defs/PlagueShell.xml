@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- A mortar shell, but plague. -->
+
+	<!-- ====== Ammo ====== -->	
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="81mmMortarShellBaseCraftableBase">
+		<defName>MP_Plague_Shell_81mm</defName>
+		<label>81mm mortar shell (Plague)</label>
+		<graphicData>
+			<texPath>Things/CE/PlagueShellCE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>67.80</MarketValue>
+			<Mass>5.00</Mass>
+			<Bulk>8.51</Bulk>
+		</statBases>
+		<ammoClass>MP_MechShell</ammoClass>
+		<detonateProjectile>MP_Bullet_81mmMortarShell_Plague</detonateProjectile>
+		<comps>
+			<li Class="CompProperties_Explosive">
+				<explosiveRadius>2.5</explosiveRadius>
+				<explosiveDamageType>MP_BlastInfectMortar</explosiveDamageType>
+				<startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+				<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+				<explodeOnKilled>True</explodeOnKilled>
+				<wickTicks>30~60</wickTicks>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<!-- ====== Bullet ====== -->	
+	<ThingDef ParentName="Base81mmMortarShell">
+		<defName>MP_Bullet_81mmMortarShell_Plague</defName>
+		<label>81mm mortar shell (plague)</label>
+		<graphicData>
+			<texPath>Things/Projectile/Mortar/HE</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageDef>MP_BlastInfectMortar</damageDef>
+			<damageAmountBase>132</damageAmountBase>
+			<armorPenetrationSharp>0</armorPenetrationSharp>
+			<armorPenetrationBlunt>0</armorPenetrationBlunt>
+			<explosionRadius>2.5</explosionRadius>
+			<flyOverhead>true</flyOverhead>
+			<soundExplode>MortarBomb_Explode</soundExplode>
+			<applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+			<ai_IsIncendiary>true</ai_IsIncendiary>
+		</projectile>
+		<comps>
+			<li Class="CombatExtended.CompProperties_Fragments">
+				<fragments>
+					<Fragment_Large>15</Fragment_Large>
+					<Fragment_Small>80</Fragment_Small>
+				</fragments>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<!-- ====== Recipe ====== -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeMP_Plague_Shell_81mm</defName>
+		<label>make 81mm plague mortar shells x5</label>
+		<description>Craft 5 81mm plague mortar shells.</description>
+		<jobString>Making 81mm plague mortar shells.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+				  <thingDefs>
+					<li>Steel</li>
+				  </thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>FSX</li>
+					</thingDefs>
+				</filter>
+				<count>8</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MP_MechaniteCanister</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>FSX</li>
+				<li>ComponentIndustrial</li>
+				<li>MP_MechaniteCanister</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<MP_Plague_Shell_81mm>5</MP_Plague_Shell_81mm>
+		</products>
+		<workAmount>12000</workAmount>
+		<researchPrerequisite>MP_MechaniteMortar</researchPrerequisite>
+	</RecipeDef>
+</Defs>

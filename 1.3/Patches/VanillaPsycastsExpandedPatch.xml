@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<!-- Vanilla Expanded Framework -->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Expanded Framework</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+				<!-- Patch existing psycasts -->
+				<!--
+				<li Class="PatchOperationAdd">
+					<xpath></xpath>
+					<value>
+					</value>
+				</li>	
+				-->
+            </operations>
+        </match>
+    </Operation>
+</Patch>

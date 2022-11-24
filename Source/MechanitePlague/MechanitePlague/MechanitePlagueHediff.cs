@@ -28,7 +28,8 @@ namespace MP_MechanitePlague
                 bool downFlag = this.pawn.Downed && this.pawn.CarriedBy == null;
                 bool progressionFlag = plagueOnPawn.Severity >= 0.15f;
                 bool validSpeciesFlag = this.pawn.RaceProps.Humanlike || (this.pawn.RaceProps.Insect && LoadedModManager.GetMod<MechPlague>().GetSettings<MechPlagueSettings>().allowInsectSpawns) || LoadedModManager.GetMod<MechPlague>().GetSettings<MechPlagueSettings>().allowAnimalSpawns;
-                if (settingFlag && !tendFlag && downFlag && progressionFlag && validSpeciesFlag)
+                bool deathrestFlag = this.pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("Deathrest")) == null && this.pawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("RegenerationComa")) == null;
+                if (settingFlag && !tendFlag && downFlag && progressionFlag && validSpeciesFlag && deathrestFlag)
                 {
                     //If we get through all of these checks, attempt the most taxing check.
                     //Search through the map to find if there is a pawn close enough to you to prevent the DoT.

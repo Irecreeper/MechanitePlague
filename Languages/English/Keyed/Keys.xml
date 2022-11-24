@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- Revival messages -->
+	<MP_ReviveStart>{0} has begun their revival process! They will return from death, assuming their corpse remains intact.</MP_ReviveStart>
+	<MP_ReviveSuccess>{0} was revived through the power of mechanites!</MP_ReviveSuccess>
+	<MP_ReviveFail>Due to the destruction of their corpse, {0} is unable to revive...</MP_ReviveFail>
+</LanguageData>

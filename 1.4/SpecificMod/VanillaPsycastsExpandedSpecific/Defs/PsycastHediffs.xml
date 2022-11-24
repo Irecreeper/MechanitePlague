@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<!-- Vulnerability Hex -->
+	<HediffDef ParentName = "PsycastHediffBase">
+		<defName>MP_VPE_VulnerabilityHexStatus</defName>
+		<label>vulnerability hex</label>
+		<description>Mechanites in the target's body will rush out of this pawn's wounds when damaged, worsening injuries.</description>
+		<isBad>true</isBad>
+		<stages>
+		  <li>
+			<statFactors>
+				<IncomingDamageFactor>1.30</IncomingDamageFactor>
+			</statFactors>
+			<capacityFactorEffectMultiplier>PsychicSensitivity</capacityFactorEffectMultiplier>
+		  </li>
+		</stages>
+	</HediffDef>
+	
+	<!-- Lichdom -->
+	<HediffDef>
+		<defName>MP_VPE_Lichdom</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>mechalich</label>
+		<description>This pawn is a Mechalich. Mechaliches have improved psychic abilities, no need to eat or sleep, and several other assorted bonuses.</description>
+		<defaultLabelColor>(0.1,0.7,0.1)</defaultLabelColor>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<stages>
+			<li>
+				<painFactor>0.25</painFactor>
+				<restFallFactor>0.01</restFallFactor>
+				<hungerRateFactor>0.01</hungerRateFactor>
+				<totalBleedFactor>0</totalBleedFactor>
+				<naturalHealingFactor>2</naturalHealingFactor>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.3</offset>
+					</li>
+				</capMods>
+				<statFactors>
+					<IncomingDamageFactor>0.8</IncomingDamageFactor>
+				</statFactors>
+				<statOffsets>
+					<PsychicSensitivity>0.2</PsychicSensitivity>
+					<ComfyTemperatureMin>-30.0</ComfyTemperatureMin>
+					<ComfyTemperatureMax>30.0</ComfyTemperatureMax>
+				</statOffsets>
+			</li>
+		</stages>
+		<comps>
+			<li Class="MP_MechanitePlagueVPE.HediffCompProperties_LichdomFoodRest"/>
+		</comps>
+		<modExtensions>
+			<li	Class="MP_MechanitePlague.ModExtension_MechPlagueImmunity"/>
+		</modExtensions>
+	</HediffDef>
+	
+	<!-- Lichdom Melee -->
+	<HediffDef>
+		<defName>MP_VPE_Lichdom_Talons</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>mechalich talons</label>
+		<description>Due to becoming a Mechalich, this pawn has retractable, bladed limbs that extend from their back to rip apart enemies. They don't deal much damage per hit, but attack quickly.</description>
+		<defaultLabelColor>(0.1,0.7,0.1)</defaultLabelColor>
+		<descriptionHyperlinks><HediffDef>MP_VPE_Lichdom</HediffDef></descriptionHyperlinks>
+		<comps>
+			<li Class="HediffCompProperties_VerbGiver">
+				<tools>
+					<li>
+						<label>blades</label>
+						<capacities>
+							<li>Cut</li>
+						</capacities>
+						<power>16</power>
+						<armorPenetration>0.35</armorPenetration>
+						<cooldownTime>1</cooldownTime>
+						<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+						<soundMeleeHit>Pawn_Melee_PowerClaw_Hit</soundMeleeHit>
+						<soundMeleeMiss>Pawn_Melee_PowerClaw_Miss</soundMeleeMiss>
+					</li>
+				</tools>
+			</li>
+		</comps>
+	</HediffDef>
+	
+	<!-- Lichdom Rez -->
+	<HediffDef>
+		<defName>MP_VPE_LichdomResurrect</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>soul jar</label>
+		<description>Through the power of mechalichdom, this pawn has obtained the temporary ability to defy death!\n\nUpon death, this pawn will revive after a short delay, assuming their corpse is still intact.</description>
+		<defaultLabelColor>(0.1,0.7,0.1)</defaultLabelColor>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="MP_MechanitePlague.HediffCompProperties_ResurrectPostDeath"/>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.06</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+	</HediffDef>
+	
+	<!-- Disintegration Damage -->
+	<HediffDef>
+		<defName>MP_VPE_DisintegrateDamage</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>disintegrating</label>
+		<description>This unit is taking massive damage over a short period as mechanites rip through their body, tearing them apart from the inside.</description>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>true</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>1800~1800</disappearsAfterTicks>
+				<showRemainingTime>True</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+			<li Class="MP_MechanitePlagueVPE.HediffCompProperties_DisintegrateDamage"/>
+		</comps>
+	</HediffDef>
+</Defs>

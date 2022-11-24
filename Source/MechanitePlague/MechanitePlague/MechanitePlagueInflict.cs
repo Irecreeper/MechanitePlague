@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System;
+using System.Collections.Generic;
 using Verse;
 
 namespace MP_MechanitePlague {
@@ -33,7 +34,7 @@ namespace MP_MechanitePlague {
         {
             //check if the target has the plague
             Hediff plagueOnPawn = hitPawn.health?.hediffSet?.GetFirstHediffOfDef(HediffDef.Named("MP_MechanitePlague"));
-            float randomSeverity = Rand.Range(lowerVal, higherVal) * (1 / hitPawn.BodySize) * Math.Max(0.5f + hitPawn.GetStatValue(StatDefOf.ToxicSensitivity) * 0.5f, 0.1f);
+            float randomSeverity = Rand.Range(lowerVal, higherVal) * (1 / hitPawn.BodySize) * Math.Max(0.5f + hitPawn.GetStatValue(StatDefOf.ToxicResistance) * 0.5f, 0.1f);
 
             //if the target has the plague, boost its intensity; otherwise, apply it
             if (plagueOnPawn != null)
@@ -44,7 +45,11 @@ namespace MP_MechanitePlague {
             }
             else
             {
-                if (hitPawn.health.hediffSet.GetFirstHediffOfDef(HediffDef.Named("MP_GuardianMechanitesHigh")) == null)
+                // TODO: Get a list of the pawn's hediffs. If one of them has the proper mod extension, don't plague.
+                List<Hediff> hediffs = new List<Hediff>();
+                hitPawn.health.hediffSet.GetHediffs(ref hediffs, hd => hd.def.HasModExtension<ModExtension_MechPlagueImmunity>());
+
+                if (hediffs.Count == 0)
                 {
                     Hediff hediff = HediffMaker.MakeHediff(HediffDef.Named("MP_MechanitePlague"), hitPawn);
                     hediff.Severity = randomSeverity;

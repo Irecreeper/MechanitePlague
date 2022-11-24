@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<RecipeDef ParentName="SurgeryFlesh">
+		<defName>MP_ForceRapidIncubation</defName>
+		<label>force incubate Bursters</label>
+		<description>Forcibly implant an entire canister of plague inducing mechanites into the target, empowered by a component. This will kill them in a generally horrific and swift fashion, spawning several allied Bursters when the target expires. Good for "conscripting" defenses in a pinch, or for gathering more Mechanite Canisters.\n\nJust... probably don't use this on your own pawns, okay?</description>
+		<workerClass>MP_MechanitePlague.Recipe_MechPlagueForceIncubate</workerClass>
+		<jobString>Implanting mechanites.</jobString>
+		<workAmount>50</workAmount>
+		<hideBodyPartNames>true</hideBodyPartNames>
+		<targetsBodyPart>false</targetsBodyPart>
+		<isViolation>true</isViolation>
+		<surgerySuccessChanceFactor>2</surgerySuccessChanceFactor>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>MP_MechaniteCanister</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>MP_MechaniteCanister</li>
+				<li>ComponentIndustrial</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>Human</li>
+		</recipeUsers>
+	</RecipeDef>
+</Defs>

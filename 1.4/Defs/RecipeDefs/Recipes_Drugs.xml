@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<!-- Luciferium Crafting -->
+
+	<RecipeDef>
+		<defName>MP_MakeLuciferium</defName>
+		<label>make luciferium</label>
+		<description>Make luciferium by reprogramming several batches of Mechanite Canisters. Produces 5 Luciferium.</description>
+		<jobString>Making luciferium from mechanites.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workAmount>10000</workAmount>
+		<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+		<ingredients>
+		  <li>
+			<filter>
+			  <thingDefs>
+				<li>ComponentSpacer</li>
+			  </thingDefs>
+			</filter>
+			<count>1</count>
+		  </li>
+		  <li>
+			<filter>
+			  <thingDefs>
+				<li>MP_MechaniteCanister</li>
+			  </thingDefs>
+			</filter>
+			<count>20</count>
+		  </li>
+		</ingredients>
+		<fixedIngredientFilter>
+		  <thingDefs>
+			<li>ComponentSpacer</li>
+			<li>MP_MechaniteCanister</li>
+		  </thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Luciferium>5</Luciferium>
+		</products>
+		<researchPrerequisites>
+			<li>MP_LuciferiumProduction</li>
+		</researchPrerequisites>
+		<skillRequirements>
+			<Crafting>6</Crafting>
+			<Intellectual>8</Intellectual>
+		</skillRequirements>
+		<recipeUsers>
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<workSkill>Crafting</workSkill>
+	  </RecipeDef>
+</Defs>

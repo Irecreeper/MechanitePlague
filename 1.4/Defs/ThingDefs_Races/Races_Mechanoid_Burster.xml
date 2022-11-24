@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef Name="MP_BursterBase" ParentName="MP_BaseMechanoidPlague">
+    <defName>MP_Mech_Burster</defName>
+    <label>burster</label>
+    <description>Small, swift, spider-like mechanoids. While their bites aren't very harmful, they carry in their fangs mechanites which cause the Mechanite Plague. Of course, a Burster is rarely ever encountered alone, usually appearing in terrifying packs that can rip apart any pawn caught unprepared.\n\nTypically formed within the bodies of humanoids, Bursters are generally unstable machines that malfunction after a short time. Those directly formed by a mechanoid hive tend to lack this problem.</description>
+    <tools>
+      <li>
+        <label>fangs</label>
+        <capacities>
+          <li>MP_BiteInfect</li>
+        </capacities>
+        <power>6</power>
+        <cooldownTime>1</cooldownTime>
+        <linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+      </li>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2.2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+        <chanceFactor>0.2</chanceFactor>
+      </li>
+    </tools>
+	<statBases>
+		<MoveSpeed>5.2</MoveSpeed>
+		<ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+		<ArmorRating_Sharp>0.30</ArmorRating_Sharp>
+		<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">1</BandwidthCost>
+		<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">12</ControlTakingTime>
+		<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+		<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.66</MechEnergyLossPerHP>
+		<WastepacksPerRecharge MayRequire="Ludeon.Rimworld.Biotech">5</WastepacksPerRecharge>
+		<WorkSpeedGlobal MayRequire="Ludeon.Rimworld.Biotech">0.5</WorkSpeedGlobal>
+    </statBases>
+    <race>
+      <body>MP_Burster</body>
+      <baseHealthScale>0.5</baseHealthScale>
+	  <baseBodySize>0.6</baseBodySize>
+      <soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+	  <mechWeightClass>Light</mechWeightClass>
+    </race>
+	<butcherProducts>
+      <Steel>5</Steel>
+      <MP_MechaniteCanister>1</MP_MechaniteCanister>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef Name="MP_BursterPawnKindBase" ParentName="BaseMechanoidKind">
+    <defName>MP_Mech_Burster</defName>
+    <label>burster</label>
+    <race>MP_Mech_Burster</race>
+    <combatPower>50</combatPower>
+    <lifeStages Inherit="False">
+		<li>
+			<bodyGraphicData>
+				<texPath>Things/Pawn/Mechanoid/Burster</texPath>
+				<maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/BursterMask</maskPath>
+				<shaderType>CutoutWithOverlay</shaderType>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>1.1</drawSize>
+				<shadowData>
+					<volume>(0.35, 0.5, 0.35)</volume>
+				</shadowData>
+			</bodyGraphicData>
+		</li>
+		<li>
+			<bodyGraphicData>
+				<texPath>Things/Pawn/Mechanoid/Burster</texPath>
+				<maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/BursterMask</maskPath>
+				<shaderType>CutoutWithOverlay</shaderType>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>1.1</drawSize>
+				<shadowData>
+					<volume>(0.35, 0.5, 0.35)</volume>
+				</shadowData>
+			</bodyGraphicData>
+		</li>
+    </lifeStages>
+    <weaponMoney>0~0</weaponMoney>
+    <defendPointRadius>0</defendPointRadius>
+    <weaponTags>
+    </weaponTags>
+  </PawnKindDef>
+</Defs>

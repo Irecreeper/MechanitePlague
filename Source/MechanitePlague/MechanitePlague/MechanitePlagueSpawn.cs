@@ -23,7 +23,6 @@ namespace MP_MechanitePlague {
         }
 
         public string thingSpawned = "";
-        public float severityToSpawn = 0.15f;
         public int bonusSpawnCount = 0;
         public bool forcePlayerFaction = false;
     }
@@ -52,7 +51,7 @@ namespace MP_MechanitePlague {
                 Lord newLord = LordMaker.MakeNewLord(factionToAssign, new LordJob_AssaultColony(factionToAssign, canKidnap: false, canTimeoutOrFlee: false, canSteal: false, useAvoidGridSmart: false, breachers: false, canPickUpOpportunisticWeapons: false), map, null);
 
                 //Spawn the pawn!
-                Pawn spawnedPawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDef.Named(thingSpawned), factionToAssign, PawnGenerationContext.NonPlayer, -1, false, true, false, false, true, false, 1f, false, true, true, false, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null));
+                Pawn spawnedPawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(PawnKindDef.Named(thingSpawned), factionToAssign, PawnGenerationContext.NonPlayer, -1, false, false, false, false, true, 1f, false, false, false, false, false, false, false, false, false, 0f, 0f, null, 1f, null, null, null, null, null, null, null, null, null, null, null));
                 GenPlace.TryPlaceThing(spawnedPawn, spawnPosition, map, ThingPlaceMode.Direct);
                 if (spawnedPawn.relations == null)
                 {
@@ -98,9 +97,11 @@ namespace MP_MechanitePlague {
         //A method called when the pawn with the plague dies.
         public override void Notify_PawnDied()
         {
+            //Read spawning severity.
+            float severityToSpawn = LoadedModManager.GetMod<MechPlague>().GetSettings<MechPlagueSettings>().intensityToSpawn;
+
             //Gather the information of Props.
             string thingSpawned = this.Props.thingSpawned;
-            float severityToSpawn = this.Props.severityToSpawn;
             int bonusSpawnCount = this.Props.bonusSpawnCount;
             bool forcePlayerFaction = this.Props.forcePlayerFaction;
 
@@ -141,9 +142,9 @@ namespace MP_MechanitePlague {
                     FilthMaker.TryMakeFilth(intVec, map, ThingDefOf.Filth_Blood, 1, 0);
                 }
 
-                //Rot the body, if possible.
+                //Rot the body, if possible / allowed.
                 CompRottable canRot = victim.Corpse.TryGetComp<CompRottable>();
-                if (canRot != null)
+                if (canRot != null && LoadedModManager.GetMod<MechPlague>().GetSettings<MechPlagueSettings>().corpsesRotOnSpawn)
                 {
                     canRot.RotImmediately();
                 }

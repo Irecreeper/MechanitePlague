@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<HediffDef>
+		<defName>MP_ResurrectOnDeath</defName>
+		<hediffClass>HediffWithComps</hediffClass>
+		<label>mechanite reanimation</label>
+		<description>Through an immense infusion of mechanites, this pawn has obtained the ability to revive after death for a short period.\n\nUpon death, this pawn will revive after a short delay, assuming their corpse is still intact.</description>
+		<defaultLabelColor>(0.7,1.0,0.7)</defaultLabelColor>
+		<scenarioCanAdd>false</scenarioCanAdd>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="MP_MechanitePlague.HediffCompProperties_ResurrectPostDeath"/>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.10</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+	</HediffDef>
+</Defs>

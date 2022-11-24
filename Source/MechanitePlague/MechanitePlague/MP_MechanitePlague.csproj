@@ -7,17 +7,18 @@
     <ProjectGuid>{46DD3B96-177A-4DEA-971F-6880360012F6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MechanitePlague</RootNamespace>
+    <RootNamespace>MP_MechanitePlague</RootNamespace>
     <AssemblyName>MechanitePlague</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\1.3\Assemblies\</OutputPath>
+    <OutputPath>..\..\..\1.4\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -33,6 +34,7 @@
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -58,14 +60,26 @@
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="VanillaPsycastsExpanded">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2842502659\1.3\Assemblies\VanillaPsycastsExpanded.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VFECore">
+      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2023507013\1.3\Assemblies\VFECore.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Building_PunjiSticks.cs" />
     <Compile Include="BursterCorpseCleaner.cs" />
     <Compile Include="BurstersOnDeath.cs" />
     <Compile Include="ChaosLauncher.cs" />
+    <Compile Include="DamageDefOf.cs" />
+    <Compile Include="GameComponent_RevivePawnAfterDeath.cs" />
+    <Compile Include="Hediff_ReviveOnDeath.cs" />
     <Compile Include="MechanitePlagueHarmony_CE.cs" />
     <Compile Include="MechanitePlagueHediff.cs" />
-    <Compile Include="MechanitePlagueHarmony_VFEM.cs" />
+    <Compile Include="MechanitePlagueHarmony_VE.cs" />
     <Compile Include="MechanitePlagueInflictApparel.cs" />
     <Compile Include="MechanitePlagueSettings.cs" />
     <Compile Include="MechanitePlagueRecipe_ForceIncubate.cs" />
@@ -74,6 +88,8 @@
     <Compile Include="MechanitePlagueHarmony_Vanilla.cs" />
     <Compile Include="MechanitePlagueSpawn.cs" />
     <Compile Include="MechanitePlagueInflict.cs" />
+    <Compile Include="MechaniteSwarmGas.cs" />
+    <Compile Include="ModExtension_MechanitePlagueImmunity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

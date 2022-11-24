@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <BodyDef>
+        <defName>MP_Burster</defName>
+        <label>burster</label>
+        <corePart>
+            <def>MP_MechanicalSpiderBase</def>
+            <height>Middle</height>
+            <depth>Outside</depth>
+            <groups>
+                <li>HeadAttackTool</li>
+            </groups>
+            <parts>
+            
+                <!-- Abdomen / Head -->
+            
+                <li>
+                    <def>MP_MechanicalAbdomen</def>
+                    <height>Middle</height>
+                    <coverage>0.2</coverage>
+                    <parts>
+                        <li>
+                            <def>Reactor</def>
+                            <coverage>0.2</coverage>
+                            <depth>Inside</depth>
+                        </li>
+                        <li>
+                            <def>FluidReprocessor</def>
+                            <coverage>0.1</coverage>
+                            <depth>Inside</depth>
+                        </li>
+                        <li>
+                            <def>FluidReprocessor</def>
+                            <coverage>0.1</coverage>
+                            <depth>Inside</depth>
+                        </li>
+                    </parts>
+                </li>
+                <li>
+                    <def>MP_MechanicalSpiderHead</def>
+                    <height>Middle</height>
+                    <coverage>0.2</coverage>
+                    <parts>
+                        <li>
+                            <def>ArtificialBrain</def>
+                            <coverage>0.1</coverage>
+                            <depth>Inside</depth>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>left first sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>left second sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>left third sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>left fourth sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>right first sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>right second sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>right third sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>right fourth sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>HearingSensor</def>
+                            <customLabel>left hearing sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>HearingSensor</def>
+                            <customLabel>right hearing sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SmellSensor</def>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>MP_MechanicalFang</def>
+                            <coverage>0.15</coverage>
+                            <groups>
+                                <li>Teeth</li>
+                            </groups>
+                        </li>
+                    </parts>
+                </li> 
+                
+                <!-- Tendrils -->
+                
+                <li>
+                    <def>MP_MechanicalTendril</def>
+                    <customLabel>left first tendril</customLabel>
+                    <coverage>0.05</coverage>
+                    <parts>
+                        <li>
+                            <def>MP_MechanicalGrasper</def>
+                            <customLabel>left first grasper</customLabel>
+                            <coverage>0.2</coverage>
+                        </li>
+                    </parts>
+                </li>
+                <li>
+                    <def>MP_MechanicalTendril</def>
+                    <customLabel>left second tendril</customLabel>
+                    <coverage>0.05</coverage>
+                    <parts>
+                        <li>
+                            <def>MP_MechanicalGrasper</def>
+                            <customLabel>left second grasper</customLabel>
+                            <coverage>0.2</coverage>
+                        </li>
+                    </parts>
+                </li>
+                <li>
+                    <def>MP_MechanicalTendril</def>
+                    <customLabel>left third tendril</customLabel>
+                    <coverage>0.05</coverage>
+                    <parts>
+                        <li>
+                            <def>MP_MechanicalGrasper</def>
+                            <customLabel>left third grasper</customLabel>
+                            <coverage>0.2</coverage>
+                        </li>
+                    </parts>
+                </li>
+                <li>
+                    <def>MP_MechanicalTendril</def>
+                    <customLabel>right first tendril</customLabel>
+                    <coverage>0.05</coverage>
+                    <parts>
+                        <li>
+                            <def>MP_MechanicalGrasper</def>
+                            <customLabel>right first grasper</customLabel>
+                            <coverage>0.2</coverage>
+                        </li>
+                    </parts>
+                </li>
+                <li>
+                    <def>MP_MechanicalTendril</def>
+                    <customLabel>right second tendril</customLabel>
+                    <coverage>0.05</coverage>
+                    <parts>
+                        <li>
+                            <def>MP_MechanicalGrasper</def>
+                            <customLabel>right second grasper</customLabel>
+                            <coverage>0.2</coverage>
+                        </li>
+                    </parts>
+                </li>
+                <li>
+                    <def>MP_MechanicalTendril</def>
+                    <customLabel>right third tendril</customLabel>
+                    <coverage>0.05</coverage>
+                    <parts>
+                        <li>
+                            <def>MP_MechanicalGrasper</def>
+                            <customLabel>right third grasper</customLabel>
+                            <coverage>0.2</coverage>
+                        </li>
+                    </parts>
+                </li>
+            </parts>
+        </corePart>
+    </BodyDef>
+</Defs>

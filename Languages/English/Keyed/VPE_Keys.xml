@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- Cast fail messages -->
+	<MP_VPE_ValidMechskipTarget>Target must be a fresh corpse that is a valid host for spawning a Burster.</MP_VPE_ValidMechskipTarget>
+	<MP_VPE_ValidFesteringBlastTarget>Target must be a non-dessicated corpse that is a valid host for spawning a Burster.</MP_VPE_ValidFesteringBlastTarget>
+	<MP_VPE_ValidHardwareUpgradeTarget>Target must be an allied Burster.</MP_VPE_ValidHardwareUpgradeTarget>
+	
+	<!-- Lichdom messages -->
+	<MP_VPE_LichdomFail>Not enough Mechanite Canisters on the map! ({0} / 100)</MP_VPE_LichdomFail>
+	<MP_VPE_LichdomSuccess>{0} has successfully become a Mechalich!</MP_VPE_LichdomSuccess>
+	<MP_VPE_LichdomSecondCastFail>Not enough Mechanite Canisters on the map! ({0} / 50)</MP_VPE_LichdomSecondCastFail>
+	<MP_VPE_LichdomSecondCastSuccess>{0} has energized the mechanites in their body, allowing them to revive from death once!</MP_VPE_LichdomSecondCastSuccess>
+</LanguageData>

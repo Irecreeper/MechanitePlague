@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Royalty -->
+
+	<Operation Class="PatchOperationFindMod">
+	  <mods>
+		<li>Royalty</li>
+	  </mods>
+      <match Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[building/minMechClusterPoints]/comps/li[spawnablePawnKinds]/spawnablePawnKinds</xpath>
+        <value>
+            <li>MP_Mech_Burster</li>
+			<li>MP_Mech_Drider</li>
+        </value>
+	  </match>
+	</Operation>
+    
+    <!-- Mechanoid Raids -->
+    
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
+		<value>
+			<li>
+                <!-- Light Plague -->
+                <kindDef>Combat</kindDef>
+                <commonality>30</commonality>
+                <options>
+                    <MP_Mech_Burster>10</MP_Mech_Burster>
+					<MP_Mech_Drider>8</MP_Mech_Drider>
+					<Mech_Scyther>8</Mech_Scyther>
+					<Mech_Lancer>8</Mech_Lancer>
+                </options>
+            </li>
+            <li>
+                <!-- Zerg Rush! -->
+                <kindDef>Combat</kindDef>
+                <commonality>20</commonality>
+                <options>
+                    <MP_Mech_Burster>10</MP_Mech_Burster>
+                </options>
+            </li>
+            <li>
+                <!-- Midrange -->
+                <kindDef>Combat</kindDef>
+                <commonality>30</commonality>
+                <options>
+                    <MP_Mech_Incubator>2</MP_Mech_Incubator>
+					<MP_Mech_Drider>10</MP_Mech_Drider>
+                    <Mech_Lancer>10</Mech_Lancer>
+                    <Mech_Pikeman>10</Mech_Pikeman>
+                </options>
+            </li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers/li[1]/options</xpath>
+		<value>
+			<MP_Mech_Burster>10</MP_Mech_Burster>
+			<MP_Mech_Drider>10</MP_Mech_Drider>
+			<MP_Mech_Incubator>8</MP_Mech_Incubator>
+		</value>
+	</Operation> 
+	
+	<!-- Modded Mechanoid Raids -->
+    
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>More Mechanoids</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
+			<value>
+				<li>
+					<!-- Zerg Rush 2: Electric Boogaloo -->
+					<kindDef>Combat</kindDef>
+					<commonality>30</commonality>
+					<options>
+						<MP_Mech_Burster>10</MP_Mech_Burster>
+						<Mech_Crawler>10</Mech_Crawler>
+					</options>
+				</li>
+				<li>
+					<!-- Mixed Heavy -->
+					<kindDef>Combat</kindDef>
+					<commonality>60</commonality>
+					<options>
+						<MP_Mech_Incubator>10</MP_Mech_Incubator>
+						<Mech_CentipedeBlaster>10</Mech_CentipedeBlaster>
+						<Mech_Mammoth>10</Mech_Mammoth>
+						<Mech_Assaulter>10</Mech_Assaulter>
+						<Mech_Pikeman>10</Mech_Pikeman>
+					</options>
+				</li>
+				<li>
+					<!-- Mixed Light -->
+					<kindDef>Combat</kindDef>
+					<commonality>60</commonality>
+					<options>
+						<MP_Mech_Drider>10</MP_Mech_Drider>
+						<Mech_Scyther>10</Mech_Scyther>
+						<Mech_Lancer>10</Mech_Lancer>
+						<Mech_Skullywag>10</Mech_Skullywag>
+						<Mech_Assaulter>10</Mech_Assaulter>
+					</options>
+				</li>
+			</value>
+		</match>
+	</Operation>
+	
+	<!--
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Alpha Animals</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName = "Mechanoid"]/pawnGroupMakers</xpath>
+			<value>
+				<li>
+					<kindDef>Combat</kindDef>
+					<commonality>30</commonality>
+					<options>
+						<MP_Mech_Incubator>8</MP_Mech_Incubator>
+						<MP_Mech_Drider>10</MP_Mech_Drider>
+						<AA_Goliath>10</AA_Goliath>
+						<AA_Fireworm>10</AA_Fireworm>
+						<AA_Phalanx>3</AA_Phalanx>
+						<Mech_Centipede>10</Mech_Centipede>
+					</options>
+				</li>
+				<li>
+					<kindDef>Combat</kindDef>
+					<commonality>30</commonality>
+					<options>
+						<MP_Mech_Drider>10</MP_Mech_Drider>
+						<MP_Mech_Burster>10</MP_Mech_Burster>
+						<AA_Aura>10</AA_Aura>
+						<AA_Daggersnout>10</AA_Daggersnout>
+						<Mech_Lancer>10</Mech_Lancer>
+						<Mech_Pikeman>10</Mech_Pikeman>
+					</options>
+				</li>
+			</value>
+		</match>
+	</Operation>
+	-->
+	
+    <!-- Pirate Raids -->
+    
+    <Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/FactionDef[defName = "Pirate"]/pawnGroupMakers</xpath>
+	  <value>
+            <li>
+                <!-- Normal fights, ranged with mixed-in ranged-plague -->
+                <kindDef>Combat</kindDef>
+                <commonality>20</commonality>
+                <options>
+                    <Scavenger>10</Scavenger>
+                    <Pirate>10</Pirate>
+                    <Mercenary_Gunner>10</Mercenary_Gunner>
+                    <Mercenary_Heavy>3</Mercenary_Heavy>
+                    <Mercenary_Sniper>3</Mercenary_Sniper>
+                    <Mercenary_Elite>3</Mercenary_Elite>
+                    <MP_Mercenary_Plaguebringer>8</MP_Mercenary_Plaguebringer>
+                    <PirateBoss>5</PirateBoss>
+                </options>
+            </li>
+			
+            <li>
+                <!-- Normal fights, melee with mixed in ranged / dual-plague -->
+                <kindDef>Combat</kindDef>
+                <commonality>20</commonality>
+                <options>
+                    <Drifter>10</Drifter>
+                    <Thrasher>10</Thrasher>
+                    <Scavenger>10</Scavenger>
+                    <Pirate>4</Pirate>
+                    <Mercenary_Gunner>4</Mercenary_Gunner>
+                    <MP_Mercenary_Plagueblade>6</MP_Mercenary_Plagueblade>
+                    <MP_Mercenary_Plaguebringer>8</MP_Mercenary_Plaguebringer>
+                    <PirateBoss>5</PirateBoss>
+                </options>
+            </li>
+			
+			<li>
+                <!-- Normal fights, very heavy plague, have fun! -->
+                <kindDef>Combat</kindDef>
+                <commonality>10</commonality>
+                <options>
+                    <Drifter>5</Drifter>
+                    <Thrasher>5</Thrasher>
+                    <Mercenary_Gunner>2</Mercenary_Gunner>
+					<Mercenary_Sniper>2</Mercenary_Sniper>
+                    <MP_Mercenary_Plagueblade>8</MP_Mercenary_Plagueblade>
+                    <MP_Mercenary_Plaguebringer>10</MP_Mercenary_Plaguebringer>
+                    <PirateBoss>5</PirateBoss>
+                </options>
+            </li>
+	  </value>
+	</Operation>
+    
+    <!-- Tribal Raids -->
+    
+    <Operation Class="PatchOperationAdd">
+	  <xpath>/Defs/FactionDef[@Name = "TribeBase"]/pawnGroupMakers</xpath>
+	  <value>
+            <li>
+                <!-- Normal fights, ranged with mixed-in ranged-plague -->
+                <kindDef>Combat</kindDef>
+                <commonality>30</commonality>
+                <options>
+                    <Tribal_Archer>8</Tribal_Archer>
+                    <Tribal_Hunter>8</Tribal_Hunter>
+                    <MP_Tribal_Blowdarter>10</MP_Tribal_Blowdarter>
+                    <Tribal_HeavyArcher>5</Tribal_HeavyArcher>
+                    <Tribal_ChiefRanged>5</Tribal_ChiefRanged>
+                </options>
+            </li>
+            <li>
+                <!-- Normal fights, melee with mixed-in dual-plague -->
+                <kindDef>Combat</kindDef>
+                <commonality>30</commonality>
+                <options>
+                    <Tribal_Penitent>8</Tribal_Penitent>
+                    <Tribal_Warrior>8</Tribal_Warrior>
+                    <MP_Tribal_Assassin>10</MP_Tribal_Assassin>
+                    <Tribal_ChiefMelee>5</Tribal_ChiefMelee>
+                    <MP_Tribal_Blowdarter>8</MP_Tribal_Blowdarter>
+              </options>
+            </li>
+	  </value>
+	</Operation>
+</Patch>

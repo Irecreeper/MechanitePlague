@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef Name="MP_DriderBase" ParentName="MP_BaseMechanoidPlague">
+    <defName>MP_Mech_Drider</defName>
+    <label>drider</label>
+    <description>Medium-sized mechanoids with the upper half of a humanoid and the lower half of a spider, Driders possess incredible speed without compromising their ability to use firearms. Making use of their speed to get in close, Driders will shred targets apart with their shotguns or their lightweight claws.\n\nThough a terror to behold on the battlefield, the Drider's design prioritizes speed over durability, making them incredibly vulnerable to focus fire.</description>
+    <tools>
+		<li>
+			<label>left blade</label>
+			<capacities>
+				<li>Cut</li>
+				<li>Stab</li>
+			</capacities>
+			<power>16</power>
+			<cooldownTime>2.2</cooldownTime>
+			<linkedBodyPartsGroup>LeftBlade</linkedBodyPartsGroup>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+		</li>
+		<li>
+			<label>right blade</label>
+			<capacities>
+				<li>Cut</li>
+				<li>Stab</li>
+			</capacities>
+			<power>16</power>
+			<cooldownTime>2.2</cooldownTime>
+			<linkedBodyPartsGroup>RightBlade</linkedBodyPartsGroup>
+			<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+		</li>
+		<li>
+			<label>head</label>
+			<capacities>
+				<li>Blunt</li>
+			</capacities>
+			<power>8</power>
+			<cooldownTime>2.2</cooldownTime>
+			<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+			<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			<chanceFactor>0.2</chanceFactor>
+		</li>
+    </tools>
+	<statBases>
+		<MoveSpeed>5.4</MoveSpeed>
+		<ArmorRating_Blunt>0.15</ArmorRating_Blunt>
+		<ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+		<BandwidthCost MayRequire="Ludeon.Rimworld.Biotech">2</BandwidthCost>
+		<ControlTakingTime MayRequire="Ludeon.Rimworld.Biotech">12</ControlTakingTime>
+		<ToxicEnvironmentResistance MayRequire="Ludeon.RimWorld.Biotech">1</ToxicEnvironmentResistance>
+		<MechEnergyLossPerHP MayRequire="Ludeon.Rimworld.Biotech">0.33</MechEnergyLossPerHP>
+		<WastepacksPerRecharge MayRequire="Ludeon.Rimworld.Biotech">5</WastepacksPerRecharge>
+		<WorkSpeedGlobal MayRequire="Ludeon.Rimworld.Biotech">0.5</WorkSpeedGlobal>
+    </statBases>
+    <race>
+		<body>MP_Drider</body>
+		<baseBodySize>1.0</baseBodySize>
+		<baseHealthScale>0.9</baseHealthScale>
+		<soundMeleeHitPawn>Pawn_Melee_MechanoidSlash_HitPawn</soundMeleeHitPawn>
+		<soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
+		<soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
+    </race>
+	<butcherProducts>
+		<Steel>15</Steel>
+		<Plasteel>5</Plasteel>
+		<MP_MechaniteCanister>1</MP_MechaniteCanister>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef Name="MP_DriderPawnKindBase" ParentName="BaseMechanoidKind">
+    <defName>MP_Mech_Drider</defName>
+    <label>drider</label>
+    <race>MP_Mech_Drider</race>
+    <combatPower>150</combatPower>
+    <lifeStages>
+		<li MayRequire="Ludeon.RimWorld.Biotech">
+			<bodyGraphicData>
+				<texPath>Things/Pawn/Mechanoid/Drider</texPath>
+				<maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/DriderMask</maskPath>
+				<shaderType>CutoutWithOverlay</shaderType>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>2</drawSize>
+				<shadowData>
+					<volume>(0.4, 0.8, 0.4)</volume>
+				</shadowData>
+			</bodyGraphicData>
+		</li>
+		<li>
+			<bodyGraphicData>
+				<texPath>Things/Pawn/Mechanoid/Drider</texPath>
+				<maskPath>Things/Pawn/Mechanoid/AllegianceOverlays/DriderMask</maskPath>
+				<shaderType>CutoutWithOverlay</shaderType>
+				<graphicClass>Graphic_Multi</graphicClass>
+				<drawSize>2</drawSize>
+				<shadowData>
+					<volume>(0.4, 0.8, 0.4)</volume>
+				</shadowData>
+			</bodyGraphicData>
+		</li>
+    </lifeStages>
+    <weaponMoney>9999~9999</weaponMoney>
+	<weaponTags>
+		<li>MP_MechanoidGunPlague</li>
+	</weaponTags>
+  </PawnKindDef>
+ </Defs>

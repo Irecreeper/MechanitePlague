@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <BodyDef>
+        <defName>MP_Incubator</defName>
+        <label>burster</label>
+        <corePart>
+            <def>MP_MechanicalSpiderBase</def>
+            <height>Middle</height>
+            <depth>Outside</depth>
+            <parts>
+            
+                <!-- Abdomen / Head -->
+                <li>
+                    <def>MP_MechanicalHeavyAbdomen</def>
+					<customLabel>cryptosleep abdomen</customLabel>
+                    <height>Middle</height>
+                    <coverage>0.20</coverage>
+					<parts>
+						<li>
+							<def>Reactor</def>
+							<coverage>0.1</coverage>
+							<depth>Inside</depth>
+						</li>
+					</parts>
+                </li>
+                <li>
+                    <def>MP_MechanicalSpiderHead</def>
+                    <height>Middle</height>
+                    <coverage>0.13</coverage>
+					<groups>
+						<li>HeadAttackTool</li>
+					</groups>
+                    <parts>
+                        <li>
+                            <def>ArtificialBrain</def>
+                            <coverage>0.1</coverage>
+                            <depth>Inside</depth>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>first left sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>second left sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>first right sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SightSensor</def>
+                            <customLabel>second right sight sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>HearingSensor</def>
+                            <customLabel>left hearing sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>HearingSensor</def>
+                            <customLabel>right hearing sensor</customLabel>
+                            <coverage>0.05</coverage>
+                        </li>
+                        <li>
+                            <def>SmellSensor</def>
+                            <coverage>0.05</coverage>
+                        </li>
+                    </parts>
+                </li> 
+                
+                <!-- Legs -->
+                
+                <li>
+                    <def>MP_MechanicalInsectLeg</def>
+                    <customLabel>left first leg</customLabel>
+                    <coverage>0.05</coverage>
+					<height>Bottom</height>
+                </li>
+                <li>
+                    <def>MP_MechanicalInsectLeg</def>
+                    <customLabel>left second leg</customLabel>
+                    <coverage>0.05</coverage>
+					<height>Bottom</height>
+                </li>
+                <li>
+                    <def>MP_MechanicalInsectLeg</def>
+                    <customLabel>left third leg</customLabel>
+                    <coverage>0.05</coverage>
+					<height>Bottom</height>
+                </li>
+                <li>
+                    <def>MP_MechanicalInsectLeg</def>
+                    <customLabel>right first leg</customLabel>
+                    <coverage>0.05</coverage>
+					<height>Bottom</height>
+                </li>
+                <li>
+                    <def>MP_MechanicalInsectLeg</def>
+                    <customLabel>right second leg</customLabel>
+                    <coverage>0.05</coverage>
+					<height>Bottom</height>
+                </li>
+				<li>
+                    <def>MP_MechanicalInsectLeg</def>
+                    <customLabel>right third leg</customLabel>
+                    <coverage>0.05</coverage>
+					<height>Bottom</height>
+                </li>
+				
+				<!-- Arms? -->
+				
+                <li>
+                    <def>MP_MechanicalInsectLegManipulator</def>
+                    <customLabel>left palp</customLabel>
+                    <coverage>0.07</coverage>
+					<groups>
+						<li>LeftPalp</li>
+					</groups>
+                </li>
+				<li>
+                    <def>MP_MechanicalInsectLegManipulator</def>
+                    <customLabel>right palp</customLabel>
+                    <coverage>0.07</coverage>
+					<groups>
+						<li>RightPalp</li>
+					</groups>
+                </li>
+				
+				<!-- Weapon Mount -->
+				<li>
+                    <def>MP_MechanicalTurretMount</def>
+                    <coverage>0.05</coverage>
+                    <depth>Inside</depth>
+                </li>
+				
+				<!-- Non-Head Internals -->
+				<li>
+					<def>FluidReprocessor</def>
+					<coverage>0.01</coverage>
+					<depth>Inside</depth>
+				</li>
+				<li>
+					<def>FluidReprocessor</def>
+					<coverage>0.01</coverage>
+					<depth>Inside</depth>
+				</li>
+            </parts>
+        </corePart>
+    </BodyDef>
+	
+	<BodyPartGroupDef>
+		<defName>LeftPalp</defName>
+		<label>left palp</label>
+		<labelShort>palp</labelShort>
+	</BodyPartGroupDef>
+  
+	<BodyPartGroupDef>
+		<defName>RightPalp</defName>
+		<label>right palp</label>
+		<labelShort>palp</labelShort>
+	</BodyPartGroupDef>
+</Defs>
